@@ -9,7 +9,7 @@ export const App: React.FC = () => {
       <Router />
       <ToastContainer
         className="text-2xl"
-        position="top-center"
+        position="bottom-center"
         autoClose={0}
         hideProgressBar={false}
         newestOnTop={false}
