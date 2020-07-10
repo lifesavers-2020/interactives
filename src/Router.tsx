@@ -3,6 +3,11 @@ import { Route, Redirect } from "wouter";
 import { MatchInFamily } from "./pages/MatchInFamily";
 import { CellDifferentiation } from "./pages/CellDifferentiation";
 import { StemCellTreatment } from "./pages/StemCellTreatment";
+import { YoungDonorWalking } from "./pages/YoungDonorWalking";
+import { MoreCollectableStemCellsInMale } from "./pages/MoreCollectableStemCellsInMale";
+import { PeripheralBloodDonation } from "./pages/PeripheralBloodDonation";
+import { FindingMatchTakesTime } from "./pages/FindingMatchTakesTime";
+import { RegisterSteps } from "./pages/RegisterSteps";
 
 export const Router: React.FC = () => {
   return (
@@ -13,7 +18,18 @@ export const Router: React.FC = () => {
       />
       <Route path="/cell-differentiation" component={CellDifferentiation} />
       <Route path="/stem-cell-treatment" component={StemCellTreatment} />
+      <Route path="/young-donor" component={YoungDonorWalking} />
       <Route path="/match-in-family" component={MatchInFamily} />
+      <Route
+        path="/more-collectable-stem-cells-in-male"
+        component={MoreCollectableStemCellsInMale}
+      />
+      <Route
+        path="/peripheral-blood-donation"
+        component={PeripheralBloodDonation}
+      />
+      <Route path="/find-match-takes-time" component={FindingMatchTakesTime} />
+      <Route path="/register-steps" component={RegisterSteps} />
     </>
   );
 };

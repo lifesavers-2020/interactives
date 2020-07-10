@@ -1,13 +1,14 @@
 import React from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { TreatmentInfo } from "../components/StemCellTreatment/TreatmentInfo";
 
-export const StemCellTreatment: React.FC = () => {
+export const YoungDonorWalking: React.FC = () => {
   return (
     <VContainer>
-      <TreatmentInfo />
-      <NextStepButton to="/young-donor" />
+      YoungDonorWalking
+      <br />
+      WIP
+      <NextStepButton to="/match-in-family" />
     </VContainer>
   );
 };

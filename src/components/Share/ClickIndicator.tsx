@@ -10,7 +10,7 @@ export const ClickIndicator: React.FC<Props> = ({
   yOffset = 0,
 }) => {
   return (
-    <div className="absolute">
+    <div className="absolute" style={{ pointerEvents: "none" }}>
       <img
         className="relative"
         width={45}

@@ -25,7 +25,7 @@ export const MatchInFamily: React.FC = () => {
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
       </div>
-      <NextStepButton to="/#" />
+      <NextStepButton to="/more-collectable-stem-cells-in-male" />
     </VContainer>
   );
 };
