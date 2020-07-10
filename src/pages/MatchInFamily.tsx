@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { DonorCandidate } from "../components/MatchInFamily/DonorCandidate";
 import { toast } from "react-toastify";
 import { NextStepButton } from "../components/Share/NextStepButton";
+import { VContainer } from "../Layout/VContainer";
 
 export const MatchInFamily: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -17,14 +18,14 @@ export const MatchInFamily: React.FC = () => {
   }, [count, setCount]);
 
   return (
-    <div className="flex flex-col justify-around h-full">
+    <VContainer>
       <div className="grid grid-cols-2 gap-4">
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
       </div>
-      <NextStepButton />
-    </div>
+      <NextStepButton to="/#" />
+    </VContainer>
   );
 };

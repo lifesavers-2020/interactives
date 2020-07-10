@@ -1,6 +1,7 @@
 import React from "react";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { Cell } from "../components/CellDifferentiation/Cell";
+import { VContainer } from "../Layout/VContainer";
 
 export const CellDifferentiation: React.FC = () => {
   const regular = {
@@ -19,12 +20,12 @@ export const CellDifferentiation: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-around h-full">
+    <VContainer>
       <div className="flex flex-col justify-around h-full">
         <Cell {...regular} />
         <Cell {...stemCell} />
       </div>
-      <NextStepButton />
-    </div>
+      <NextStepButton to="/stem-cell-treatment" />
+    </VContainer>
   );
 };
