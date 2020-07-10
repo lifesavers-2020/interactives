@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ClickIndicator } from "../Share/ClickIndicator";
 
 interface Props {
   src: string;
@@ -18,8 +19,9 @@ export const Cell: React.FC<Props> = ({ src, name, info, reverse }) => {
         } justify-between my-1 items-center`}
         onClick={() => setShowInfo(true)}
       >
-        <div className="w-1/2">
+        <div className="w-1/2 flex flex-row justify-center items-center">
           <img src={src} alt="" />
+          <ClickIndicator xOffset={45} yOffset={45} />
         </div>
         <h2 className="text-center my-2 text-xl">{name}</h2>
       </div>

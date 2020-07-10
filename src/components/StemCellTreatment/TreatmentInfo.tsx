@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ClickIndicator } from "../Share/ClickIndicator";
 
 export const TreatmentInfo: React.FC = () => {
   const [showInfo, setShowInfo] = useState(false);
@@ -17,6 +18,7 @@ export const TreatmentInfo: React.FC = () => {
           alt="Stem Cell"
         />
       </div>
+      <ClickIndicator xOffset={75} yOffset={45} />
       <p>Different diseases stem cells can treat</p>
       <div
         className="rounded shadow border border-gray-400 w-full p-4 my-2"

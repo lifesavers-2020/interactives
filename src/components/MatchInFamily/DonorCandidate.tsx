@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import { ClickIndicator } from "../Share/ClickIndicator";
 
 interface Props {
   isMatching: () => boolean;
@@ -10,14 +11,16 @@ export const DonorCandidate: React.FC<Props> = ({
   onClick: parentOnClick,
 }) => {
   const [selected, setSelected] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const onClick = useCallback(() => {
     parentOnClick && parentOnClick();
     isMatching() && setSelected(true);
+    setClicked(true);
   }, [parentOnClick, isMatching, setSelected]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center">
       <div onClick={onClick}>
         <img
           style={{ display: selected ? "none" : undefined }}
@@ -34,6 +37,7 @@ export const DonorCandidate: React.FC<Props> = ({
           alt="Unmatched donor in the family"
         />
       </div>
+      {!clicked && <ClickIndicator xOffset={45} yOffset={60} />}
     </div>
   );
 };
