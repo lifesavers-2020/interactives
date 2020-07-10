@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { DonorCandidate } from "../components/MatchInFamily/DonorCandidate";
 import { toast } from "react-toastify";
+import { NextStepButton } from "../components/Share/NextStepButton";
 
 export const MatchInFamily: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -23,9 +24,7 @@ export const MatchInFamily: React.FC = () => {
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
         <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
       </div>
-      <button className="w-full sm:w-64 mx-auto bg-white hover:bg-gray-100 py-3 text-gray-800 border border-gray-400 font-semibold rounded shadow">
-        Next Step
-      </button>
+      <NextStepButton />
     </div>
   );
 };
