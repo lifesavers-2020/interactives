@@ -8,13 +8,19 @@ export const Swab: React.FC = () => {
   return (
     <div>
       <div>
-        <img src="/assets/imgs/register-steps/swab/bg.png" />
+        <img
+          src="/assets/imgs/register-steps/swab/bg.png"
+          alt="Person swabbing"
+        />
       </div>
       <div
         className="relative"
         style={{ zIndex: -1, width: 180, top: -180, left: 16 }}
       >
-        <img src="/assets/imgs/register-steps/swab/head.png" />
+        <img
+          src="/assets/imgs/register-steps/swab/head.png"
+          alt="Person swabbing"
+        />
       </div>
       <motion.div
         drag
@@ -27,6 +33,7 @@ export const Swab: React.FC = () => {
           <img
             draggable={false}
             src="/assets/imgs/register-steps/swab/hand.png"
+            alt="Person swabbing"
           />
         </div>
       </motion.div>

@@ -11,14 +11,14 @@ export const RegisterSteps: React.FC = () => {
     <>
       <div
         className="absolute"
-        onClick={() => step == 0 && setStep(step + 1)}
+        onClick={() => step === 0 && setStep(step + 1)}
         style={{ top: 16, left: 16, width: 180 }}
       >
         <FillInDocument />
       </div>
       <div
         className="absolute"
-        onClick={() => step == 1 && setStep(step + 1)}
+        onClick={() => step === 1 && setStep(step + 1)}
         style={{
           top: 128,
           right: 16,
