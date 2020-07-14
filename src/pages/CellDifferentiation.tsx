@@ -21,7 +21,7 @@ export const CellDifferentiation: React.FC = () => {
 
   return (
     <VContainer>
-      <div className="flex flex-col justify-around h-full">
+      <div className="flex flex-col justify-around h-full p-4">
         <Cell {...regular} />
         <Cell {...stemCell} />
       </div>
