@@ -7,7 +7,7 @@ export const TreatmentInfo: React.FC = () => {
   return (
     <div className="flex flex-col justify-around items-center h-full">
       <div
-        className="rounded shadow border border-gray-400 w-full p-4 my-2"
+        className="card"
         style={{ visibility: showInfo ? "visible" : "hidden" }}
       >
         Various types of blood cancers such as leukemia, lymphoma or myeloma.
@@ -21,7 +21,7 @@ export const TreatmentInfo: React.FC = () => {
       <ClickIndicator xOffset={75} yOffset={45} />
       <p>Different diseases stem cells can treat</p>
       <div
-        className="rounded shadow border border-gray-400 w-full p-4 my-2"
+        className="card"
         style={{ visibility: showInfo ? "visible" : "hidden" }}
       >
         Bone marrow deficiency diseases such as thalassemia or sickle cell

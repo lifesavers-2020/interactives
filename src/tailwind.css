@@ -8,3 +8,32 @@ body,
   @apply w-screen;
   @apply h-screen;
 }
+
+.card {
+  @apply rounded;
+  @apply shadow;
+  @apply border;
+  @apply border-gray-400;
+  @apply w-full;
+  @apply p-4;
+  @apply my-2;
+}
+
+button {
+  @apply bg-white;
+  @apply py-3;
+  @apply text-gray-800;
+  @apply border;
+  @apply border-gray-400;
+  @apply font-semibold;
+  @apply rounded;
+  @apply shadow;
+}
+button:hover {
+  @apply bg-gray-100;
+}
+
+button.full {
+  @apply w-full;
+  @apply mx-auto;
+}

@@ -33,7 +33,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
           visibility: showMaleBg && showFemaleBg ? "visible" : "hidden",
         }}
       >
-        <div className="rounded shadow border border-gray-400 w-full p-4 my-2">
+        <div className="card">
           On average, more stem cells can be collected from male donors.
         </div>
       </div>
