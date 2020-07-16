@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface Props {
   src: string;
@@ -10,20 +10,17 @@ interface Props {
 export const Figure: React.FC<Props> = ({ src, bgSrc, showBg, setShowBg }) => {
   return (
     <div style={{ width: "40%" }}>
-      <div className="absolute">
-        <img
-          src={bgSrc}
-          alt=""
-          style={{ visibility: showBg ? "visible" : "hidden" }}
-        />
-      </div>
-      <div
-        onClick={() => setShowBg(true)}
-        className="relative"
-        style={{ zIndex: 1, bottom: 0 }}
-      >
-        <img src={src} alt="" />
-      </div>
+      <img
+        className="absolute"
+        src={bgSrc}
+        alt=""
+        style={{
+          visibility: showBg ? "visible" : "hidden",
+          width: "40%",
+          maxWidth: 220,
+        }}
+      />
+      <img onClick={() => setShowBg(true)} src={src} alt="" />
     </div>
   );
 };
