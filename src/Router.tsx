@@ -8,6 +8,7 @@ import { MoreCollectableStemCellsInMale } from "./pages/MoreCollectableStemCells
 import { PeripheralBloodDonation } from "./pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "./pages/FindingMatchTakesTime";
 import { RegisterSteps } from "./pages/RegisterSteps";
+import { FindMatchInFamily } from "./pages/FindMatchInFamily";
 
 export const Router: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ export const Router: React.FC = () => {
       <Route path="/stem-cell-treatment" component={StemCellTreatment} />
       <Route path="/young-donor" component={YoungDonorWalking} />
       <Route path="/match-in-family" component={MatchInFamily} />
+      <Route path="/find-match-in-family" component={FindMatchInFamily} />
       <Route
         path="/more-collectable-stem-cells-in-male"
         component={MoreCollectableStemCellsInMale}

@@ -11,6 +11,7 @@ interface Props {
   height?: number | string;
   onClick?: () => void;
   imgs?: ClickImage[];
+  style?: React.CSSProperties;
 }
 
 export const ClickEvent: React.FC<Props> = ({
@@ -18,16 +19,18 @@ export const ClickEvent: React.FC<Props> = ({
   height,
   onClick,
   imgs = [],
+  style,
   children,
 }) => {
   return (
     <div
       className="relative w-full"
       onClick={onClick}
-      style={{ width, height }}
+      style={{ width, height, ...style }}
     >
       {imgs.map(({ src, alt, visibility = () => true }) => (
         <img
+          key={src}
           className="absolute"
           src={src}
           alt={alt}
