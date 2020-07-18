@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { PeripheralBloodDonor } from "../components/PeripheralBloodDonation/PeripheralBloodDonor";
+import { ClickEvent } from "../components/Interactions/ClickEvent";
 
 export const PeripheralBloodDonation: React.FC = () => {
+  const [count, setCount] = useState(0);
+
+  const Donor = (
+    <ClickEvent
+      onClick={() => count < 3 && setCount(count + 1)}
+      imgs={[
+        { src: "/assets/imgs/peripheral-blood-donation/chair.png" },
+        { src: "/assets/imgs/peripheral-blood-donation/donor.png" },
+        { src: "/assets/imgs/peripheral-blood-donation/chair2.png" },
+        {
+          src: "/assets/imgs/peripheral-blood-donation/b1.png",
+          visibility: () => count > 0,
+        },
+        {
+          src: "/assets/imgs/peripheral-blood-donation/b2.png",
+          visibility: () => count > 1,
+        },
+        {
+          src: "/assets/imgs/peripheral-blood-donation/b3.png",
+          visibility: () => count > 2,
+        },
+      ]}
+    />
+  );
+
   return (
     <VContainer>
-      <div style={{ width: 300 }}>
-        <PeripheralBloodDonor />
-      </div>
+      <div style={{ width: 300 }}>{Donor}</div>
       <NextStepButton to="/find-match-takes-time" />
     </VContainer>
   );
