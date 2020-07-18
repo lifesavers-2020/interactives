@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { ClickEvent } from "../components/Interactions/ClickEvent";
+import { ClickableImages } from "../components/Interactions/ClickableImages";
 
 export const PeripheralBloodDonation: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const Donor = (
-    <ClickEvent
+    <ClickableImages
       width={300}
       height={367.19}
       onClick={() => count < 3 && setCount(count + 1)}

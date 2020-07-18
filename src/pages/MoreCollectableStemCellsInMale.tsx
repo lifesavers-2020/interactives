@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { ClickEvent } from "../components/Interactions/ClickEvent";
+import { ClickableImages } from "../components/Interactions/ClickableImages";
 
 export const MoreCollectableStemCellsInMale: React.FC = () => {
   const [showMaleBg, setShowMaleBg] = useState(false);
   const [showFemaleBg, setShowFemaleBg] = useState(false);
 
   const Female = (
-    <ClickEvent
+    <ClickableImages
       width={150}
       height={442.91}
       onClick={() => setShowFemaleBg(true)}
@@ -23,7 +23,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   const Male = (
-    <ClickEvent
+    <ClickableImages
       width={150}
       height={442.91}
       onClick={() => setShowMaleBg(true)}

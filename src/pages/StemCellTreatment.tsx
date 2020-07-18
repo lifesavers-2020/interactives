@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { ClickEvent } from "../components/Interactions/ClickEvent";
+import { ClickableImages } from "../components/Interactions/ClickableImages";
 
 export const StemCellTreatment: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const StemCell = (
-    <ClickEvent
+    <ClickableImages
       width={254}
       height={254}
       onClick={() => count < 2 && setCount(count + 1)}

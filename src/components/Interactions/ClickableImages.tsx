@@ -14,7 +14,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export const ClickEvent: React.FC<Props> = ({
+export const ClickableImages: React.FC<Props> = ({
   width,
   height,
   onClick,

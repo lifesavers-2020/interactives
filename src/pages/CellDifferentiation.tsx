@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { VContainer } from "../Layout/VContainer";
-import { ClickEvent } from "../components/Interactions/ClickEvent";
+import { ClickableImages } from "../components/Interactions/ClickableImages";
 
 export const CellDifferentiation: React.FC = () => {
   const [regularClicked, setRegularClicked] = useState(false);
@@ -9,7 +9,7 @@ export const CellDifferentiation: React.FC = () => {
 
   const RegularCell = (
     <div className="flex flex-row justify-around items-center w-full">
-      <ClickEvent
+      <ClickableImages
         width={250}
         height={187}
         onClick={() => setRegularClicked(true)}
@@ -22,7 +22,7 @@ export const CellDifferentiation: React.FC = () => {
   const StemCell = (
     <div className="flex flex-row justify-around items-center w-full">
       <h2 className="text-center my-2 text-xl">Stem Cells</h2>
-      <ClickEvent
+      <ClickableImages
         width={200}
         height={200}
         onClick={() => setStemCellClicked(true)}

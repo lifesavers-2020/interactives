@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { ClickEvent } from "../components/Interactions/ClickEvent";
+import { ClickableImages } from "../components/Interactions/ClickableImages";
 
 export const FindMatchInFamily: React.FC = () => {
   const [found, setFound] = useState(false);
 
   const DonorArea = (
-    <ClickEvent
+    <ClickableImages
       onClick={() => setFound(true)}
       width={80}
       height={230}
@@ -16,7 +16,7 @@ export const FindMatchInFamily: React.FC = () => {
   );
 
   const Family = (
-    <ClickEvent
+    <ClickableImages
       width={300}
       height={283.25}
       imgs={[
@@ -31,7 +31,7 @@ export const FindMatchInFamily: React.FC = () => {
       ]}
     >
       {DonorArea}
-    </ClickEvent>
+    </ClickableImages>
   );
 
   const makeImageBox = (
