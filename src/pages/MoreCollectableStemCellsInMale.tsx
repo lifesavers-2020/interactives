@@ -1,39 +1,55 @@
 import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
-import { Figure } from "../components/MoreCollectableStemCellsInMale/Figure";
+import { ClickEvent } from "../components/Interactions/ClickEvent";
 
 export const MoreCollectableStemCellsInMale: React.FC = () => {
   const [showMaleBg, setShowMaleBg] = useState(false);
   const [showFemaleBg, setShowFemaleBg] = useState(false);
 
-  const male = {
-    src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png",
-    bgSrc: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
-    showBg: showMaleBg,
-    setShowBg: setShowMaleBg,
-  };
+  const Female = (
+    <ClickEvent
+      width={150}
+      height={442.91}
+      onClick={() => setShowFemaleBg(true)}
+      imgs={[
+        { src: "/assets/imgs/more-collectable-stem-cells-in-male/female.png" },
+        {
+          src: "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
+          visibility: () => showFemaleBg,
+        },
+      ]}
+    />
+  );
 
-  const female = {
-    src: "/assets/imgs/more-collectable-stem-cells-in-male/female.png",
-    bgSrc: "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
-    showBg: showFemaleBg,
-    setShowBg: setShowFemaleBg,
-  };
+  const Male = (
+    <ClickEvent
+      width={150}
+      height={442.91}
+      onClick={() => setShowMaleBg(true)}
+      imgs={[
+        { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },
+        {
+          src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
+          visibility: () => showMaleBg,
+        },
+      ]}
+    />
+  );
 
   return (
     <VContainer>
-      <div className="flex flex-row justify-between">
-        <Figure {...female} />
-        <Figure {...male} />
-      </div>
-      <div
-        className="p-4"
-        style={{
-          visibility: showMaleBg && showFemaleBg ? "visible" : "hidden",
-        }}
-      >
-        <div className="card">
+      <div className="p-4">
+        <div className="flex flex-row justify-around">
+          {Female}
+          {Male}
+        </div>
+        <div
+          className="card"
+          style={{
+            visibility: showMaleBg && showFemaleBg ? "visible" : "hidden",
+          }}
+        >
           On average, more stem cells can be collected from male donors.
         </div>
       </div>

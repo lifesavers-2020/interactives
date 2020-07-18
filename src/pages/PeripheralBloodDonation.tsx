@@ -8,6 +8,8 @@ export const PeripheralBloodDonation: React.FC = () => {
 
   const Donor = (
     <ClickEvent
+      width={300}
+      height={367.19}
       onClick={() => count < 3 && setCount(count + 1)}
       imgs={[
         { src: "/assets/imgs/peripheral-blood-donation/chair.png" },
@@ -31,7 +33,16 @@ export const PeripheralBloodDonation: React.FC = () => {
 
   return (
     <VContainer>
-      <div style={{ width: 300 }}>{Donor}</div>
+      <div className="p-4">
+        {Donor}
+        <div
+          className="card"
+          style={{ visibility: count > 2 ? "visible" : "hidden" }}
+        >
+          80% of stem cell transplants are done through peripheral blood
+          donation.
+        </div>
+      </div>
       <NextStepButton to="/find-match-takes-time" />
     </VContainer>
   );
