@@ -32,6 +32,7 @@ export const ClickableImages: React.FC<Props> = ({
         <img
           key={src}
           className="absolute"
+          draggable={false}
           src={src}
           alt={alt}
           style={{ visibility: visibility() ? "visible" : "hidden" }}

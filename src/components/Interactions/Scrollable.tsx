@@ -24,11 +24,13 @@ export const Scrollable: React.FC<Props> = ({
   children,
 }) => {
   return (
-    <div style={{ width: containerWidth, overflowX: "hidden" }}>
-      <div style={{ width: imageWidth }}>
-        <motion.div drag={drag} dragConstraints={dragConstraints}>
-          {children}
-        </motion.div>
+    <div className="relative">
+      <div style={{ width: containerWidth, overflowX: "hidden" }}>
+        <div style={{ width: imageWidth }}>
+          <motion.div drag={drag} dragConstraints={dragConstraints}>
+            {children}
+          </motion.div>
+        </div>
       </div>
     </div>
   );

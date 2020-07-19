@@ -40,9 +40,11 @@ export const FindMatchInFamily: React.FC = () => {
     width: number,
     height: number
   ) => (
-    <div className="border text-center" style={{ width, height }}>
-      {txt}
-      <img src={src} alt="" />
+    <div style={{ width, height }}>
+      <div className="border text-center">{txt}</div>
+      <div className="border text-center">
+        <img src={src} alt="" />
+      </div>
     </div>
   );
 
@@ -93,7 +95,7 @@ export const FindMatchInFamily: React.FC = () => {
         {Family}
         {found ? Info : Hint}
       </div>
-      <NextStepButton to="/more-collectable-stem-cells-in-male" />
+      <NextStepButton to="/find-match-in-crowd" />
     </VContainer>
   );
 };

@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { Scrollable } from "../components/Interactions/Scrollable";
-import { debounce } from "../components/Share/Utils";
+import { useOnResize } from "../components/Share/UseOnResize";
 
 export const YoungDonorWalking: React.FC = () => {
   const bgWidth = 1500;
   const [dragLeft, setDragLeft] = useState(window.innerWidth - bgWidth);
 
-  useEffect(() => {
-    const onResize = debounce(
-      () => setDragLeft(window.innerWidth - bgWidth),
-      200
-    );
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
+  useOnResize(() => setDragLeft(window.innerWidth - bgWidth), 200);
 
   const WalkingPerson = (
     <div
