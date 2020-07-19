@@ -26,6 +26,7 @@ export const DonorCandidate: React.FC<Props> = ({
           style={{ display: selected ? "none" : undefined }}
           src="/assets/imgs/match-in-family/unselected.png"
           alt="Potential donor in the family"
+          draggable={false}
         />
         <img
           style={{
@@ -35,6 +36,7 @@ export const DonorCandidate: React.FC<Props> = ({
           }}
           src="/assets/imgs/match-in-family/selected.png"
           alt="Unmatched donor in the family"
+          draggable={false}
         />
       </div>
       {!clicked && <ClickIndicator xOffset={45} yOffset={60} />}

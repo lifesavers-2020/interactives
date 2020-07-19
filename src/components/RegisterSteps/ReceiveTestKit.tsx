@@ -5,6 +5,7 @@ export const ReceiveTestKit: React.FC = () => {
     <img
       src="/assets/imgs/register-steps/receive-test-kit.png"
       alt="Receive test kit"
+      draggable={false}
     />
   );
 };

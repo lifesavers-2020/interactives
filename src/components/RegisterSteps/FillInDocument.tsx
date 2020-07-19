@@ -5,6 +5,7 @@ export const FillInDocument: React.FC = () => {
     <img
       src="/assets/imgs/register-steps/fill-in-document.png"
       alt="Fill in documents"
+      draggable={false}
     />
   );
 };

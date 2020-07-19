@@ -17,6 +17,7 @@ export const ClickIndicator: React.FC<Props> = ({
         src="/assets/imgs/shared/click.gif"
         alt=""
         style={{ left: xOffset, top: yOffset }}
+        draggable={false}
       />
     </div>
   );

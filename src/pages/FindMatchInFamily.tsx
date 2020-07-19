@@ -43,7 +43,7 @@ export const FindMatchInFamily: React.FC = () => {
     <div style={{ width, height }}>
       <div className="border text-center">{txt}</div>
       <div className="border text-center">
-        <img src={src} alt="" />
+        <img src={src} alt="" draggable={false} />
       </div>
     </div>
   );

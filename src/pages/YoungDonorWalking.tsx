@@ -23,6 +23,7 @@ export const YoungDonorWalking: React.FC = () => {
       <img
         src="/assets/imgs/young-donor-walking/walking.gif"
         alt="Young donor"
+        draggable={false}
       />
     </div>
   );
@@ -35,9 +36,9 @@ export const YoungDonorWalking: React.FC = () => {
         dragConstraints={{ right: 0, left: dragLeft }}
       >
         <img
-          draggable={false}
           src="/assets/imgs/young-donor-walking/tree+road.png"
           alt="background"
+          draggable={false}
         />
       </Scrollable>
     </div>

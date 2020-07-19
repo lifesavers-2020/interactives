@@ -5,6 +5,7 @@ export const PersonHoldingPhone: React.FC = () => {
     <img
       src="/assets/imgs/register-steps/person-holding-phone.png"
       alt="Person Holding Phone"
+      draggable={false}
     />
   );
 };
