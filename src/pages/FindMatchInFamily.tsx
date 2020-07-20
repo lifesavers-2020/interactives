@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
+import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
 export const FindMatchInFamily: React.FC = () => {
   const [found, setFound] = useState(false);
@@ -75,7 +76,7 @@ export const FindMatchInFamily: React.FC = () => {
   );
 
   const Info = (
-    <div
+    <FadeAnimation
       className="card text-center flex flex-col justify-center"
       style={{ height: 300 }}
     >
@@ -86,7 +87,7 @@ export const FindMatchInFamily: React.FC = () => {
         For many patients, stem cell transplantation is their only hope. Only
         1/4 of them could find a match donor in their family.
       </p>
-    </div>
+    </FadeAnimation>
   );
 
   return (

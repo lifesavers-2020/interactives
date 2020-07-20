@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface ClickImage {
   src: string;
@@ -29,13 +30,15 @@ export const ClickableImages: React.FC<Props> = ({
       style={{ width, height, ...style }}
     >
       {imgs.map(({ src, alt, visibility = () => true }) => (
-        <img
+        <motion.img
           key={src}
           className="absolute"
+          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
           draggable={false}
           src={src}
           alt={alt}
-          style={{ visibility: visibility() ? "visible" : "hidden" }}
+          initial="hidden"
+          animate={visibility() ? "visible" : "hidden"}
         />
       ))}
       {children}

@@ -3,6 +3,7 @@ import { PersonHoldingPhone } from "../components/RegisterSteps/PersonHoldingPho
 import { FillInDocument } from "../components/RegisterSteps/FillInDocument";
 import { ReceiveTestKit } from "../components/RegisterSteps/ReceiveTestKit";
 import { Swab } from "../components/RegisterSteps/Swab";
+import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
 export const RegisterSteps: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -14,7 +15,9 @@ export const RegisterSteps: React.FC = () => {
         onClick={() => step === 0 && setStep(step + 1)}
         style={{ top: 16, left: 16, width: 180 }}
       >
-        <FillInDocument />
+        <FadeAnimation>
+          <FillInDocument />
+        </FadeAnimation>
       </div>
       <div
         className="absolute"
@@ -23,10 +26,11 @@ export const RegisterSteps: React.FC = () => {
           top: 128,
           right: 16,
           width: 180,
-          visibility: step > 0 ? "visible" : "hidden",
         }}
       >
-        <ReceiveTestKit />
+        <FadeAnimation visible={() => step > 0}>
+          <ReceiveTestKit />
+        </FadeAnimation>
       </div>
       <div
         className="absolute"
@@ -34,13 +38,16 @@ export const RegisterSteps: React.FC = () => {
           top: 296,
           right: 120,
           width: 180,
-          visibility: step > 1 ? "visible" : "hidden",
         }}
       >
-        <Swab />
+        <FadeAnimation visible={() => step > 1}>
+          <Swab />
+        </FadeAnimation>
       </div>
       <div className="absolute" style={{ bottom: 64, left: 32, width: 180 }}>
-        <PersonHoldingPhone />
+        <FadeAnimation>
+          <PersonHoldingPhone />
+        </FadeAnimation>
       </div>
     </>
   );

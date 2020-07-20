@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
+import { PopAnimation } from "../components/Animations/PopAnimation";
+import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
 export const StemCellTreatment: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -16,14 +18,9 @@ export const StemCellTreatment: React.FC = () => {
   );
 
   const makeInfoCard = (visible: () => boolean, info: string) => (
-    <div
-      className="card"
-      style={{
-        visibility: visible() ? "visible" : "hidden",
-      }}
-    >
+    <PopAnimation className="card" visible={visible}>
       {info}
-    </div>
+    </PopAnimation>
   );
 
   return (
@@ -34,7 +31,7 @@ export const StemCellTreatment: React.FC = () => {
           "Various types of blood cancers such as leukemia, lymphoma or myeloma."
         )}
         {StemCell}
-        <p>Different diseases stem cells can treat</p>
+        <FadeAnimation>Different diseases stem cells can treat</FadeAnimation>
         {makeInfoCard(
           () => count > 1,
           "Bone marrow deficiency diseases such as thalassemia or sickle cell disease."

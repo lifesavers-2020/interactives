@@ -4,6 +4,8 @@ import { Scrollable } from "../components/Interactions/Scrollable";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { VContainer } from "../Layout/VContainer";
 import { useOnResize } from "../components/Share/UseOnResize";
+import { FadeAnimation } from "../components/Animations/FadeAnimation";
+import { PopAnimation } from "../components/Animations/PopAnimation";
 
 export const FindMatchInCrowd: React.FC = () => {
   const bgWidth = 1300;
@@ -24,12 +26,12 @@ export const FindMatchInCrowd: React.FC = () => {
           style={{ left: 810, top: 30 }}
         />
         {found && (
-          <div
+          <PopAnimation
             className="absolute card bg-white text-center"
             style={{ width: 150, left: 775, top: 157 }}
           >
             You found a matching donor
-          </div>
+          </PopAnimation>
         )}
       </div>
       <div>
@@ -40,12 +42,12 @@ export const FindMatchInCrowd: React.FC = () => {
           style={{ left: 392, top: -114 }}
         />
         {foundOld && (
-          <div
+          <PopAnimation
             className="absolute card bg-white text-center"
             style={{ width: 150, left: 353, top: 150 }}
           >
             The donor has to be 18-35 years old
-          </div>
+          </PopAnimation>
         )}
       </div>
       <div>
@@ -56,12 +58,12 @@ export const FindMatchInCrowd: React.FC = () => {
           style={{ left: 281, top: -114 }}
         />
         {foundDiffEthnic && (
-          <div
+          <PopAnimation
             className="absolute card bg-white text-center"
             style={{ width: 150, left: 248, top: 262 }}
           >
             Match rate is higher within the same ethnic group
-          </div>
+          </PopAnimation>
         )}
       </div>
     </>
@@ -99,15 +101,21 @@ export const FindMatchInCrowd: React.FC = () => {
 
   const Patient = makeBox(
     <div>
-      <img
-        src={
-          found
-            ? "/assets/imgs/find-match-in-crowd/patient-2.png"
-            : "/assets/imgs/find-match-in-crowd/patient-1.png"
-        }
-        alt="Patient"
-        draggable={false}
-      />
+      {found ? (
+        <FadeAnimation>
+          <img
+            src="/assets/imgs/find-match-in-crowd/patient-2.png"
+            alt="patient"
+            draggable={false}
+          />
+        </FadeAnimation>
+      ) : (
+        <img
+          src="/assets/imgs/find-match-in-crowd/patient-1.png"
+          alt="patient"
+          draggable={false}
+        />
+      )}
       <div className="text-center">{`{Patient Name}`}</div>
     </div>,
     "Patient",

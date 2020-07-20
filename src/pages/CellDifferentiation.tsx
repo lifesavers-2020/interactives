@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { VContainer } from "../Layout/VContainer";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
+import { PopAnimation } from "../components/Animations/PopAnimation";
+import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
 export const CellDifferentiation: React.FC = () => {
   const [regularClicked, setRegularClicked] = useState(false);
   const [stemCellClicked, setStemCellClicked] = useState(false);
 
   const RegularCell = (
-    <div className="flex flex-row justify-around items-center w-full">
+    <FadeAnimation className="flex flex-row justify-around items-center w-full">
       <ClickableImages
         width={250}
         height={187}
@@ -16,11 +18,11 @@ export const CellDifferentiation: React.FC = () => {
         imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
       />
       <h2 className="text-center my-2 text-xl">Regular Cells</h2>
-    </div>
+    </FadeAnimation>
   );
 
   const StemCell = (
-    <div className="flex flex-row justify-around items-center w-full">
+    <FadeAnimation className="flex flex-row justify-around items-center w-full">
       <h2 className="text-center my-2 text-xl">Stem Cells</h2>
       <ClickableImages
         width={200}
@@ -28,16 +30,13 @@ export const CellDifferentiation: React.FC = () => {
         onClick={() => setStemCellClicked(true)}
         imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
       />
-    </div>
+    </FadeAnimation>
   );
 
   const makeInfoCard = (visible: () => boolean, info: string) => (
-    <div
-      className="card"
-      style={{ visibility: visible() ? "visible" : "hidden" }}
-    >
+    <PopAnimation className="card" visible={visible}>
       {info}
-    </div>
+    </PopAnimation>
   );
 
   return (

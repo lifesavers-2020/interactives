@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { Scrollable } from "../components/Interactions/Scrollable";
 import { useOnResize } from "../components/Share/UseOnResize";
+import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
 export const YoungDonorWalking: React.FC = () => {
   const bgWidth = 1500;
@@ -10,7 +11,7 @@ export const YoungDonorWalking: React.FC = () => {
   useOnResize(() => setDragLeft(window.innerWidth - bgWidth), 200);
 
   const WalkingPerson = (
-    <div
+    <FadeAnimation
       className="absolute"
       style={{
         zIndex: 1,
@@ -25,7 +26,7 @@ export const YoungDonorWalking: React.FC = () => {
         alt="Young donor"
         draggable={false}
       />
-    </div>
+    </FadeAnimation>
   );
 
   const Background = (

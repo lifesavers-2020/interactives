@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { VContainer } from "../Layout/VContainer";
 import { NextStepButton } from "../components/Share/NextStepButton";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
+import { PopAnimation } from "../components/Animations/PopAnimation";
 
 export const PeripheralBloodDonation: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -31,17 +32,17 @@ export const PeripheralBloodDonation: React.FC = () => {
     />
   );
 
+  const Info = (
+    <PopAnimation className="card" visible={() => count > 2}>
+      80% of stem cell transplants are done through peripheral blood donation.
+    </PopAnimation>
+  );
+
   return (
     <VContainer>
       <div className="p-4">
         {Donor}
-        <div
-          className="card"
-          style={{ visibility: count > 2 ? "visible" : "hidden" }}
-        >
-          80% of stem cell transplants are done through peripheral blood
-          donation.
-        </div>
+        {Info}
       </div>
       <NextStepButton to="/find-match-takes-time" />
     </VContainer>
