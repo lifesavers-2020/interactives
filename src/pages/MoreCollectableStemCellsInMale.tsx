@@ -17,8 +17,12 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
         {
           src: "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
           visibility: () => showFemaleBg,
+          tappable: false,
+          hoverable: false,
         },
       ]}
+      hoverable={true}
+      tappable={true}
     />
   );
 
@@ -32,8 +36,12 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
         {
           src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
           visibility: () => showMaleBg,
+          tappable: false,
+          hoverable: false,
         },
       ]}
+      hoverable={true}
+      tappable={true}
     />
   );
 

@@ -15,6 +15,8 @@ export const CellDifferentiation: React.FC = () => {
         height={187}
         onClick={() => setRegularClicked(true)}
         imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
+        hoverable={true}
+        tappable={true}
       />
       <h2 className="text-center my-2 text-xl">Regular Cells</h2>
     </FadeAnimation>
@@ -28,6 +30,8 @@ export const CellDifferentiation: React.FC = () => {
         height={200}
         onClick={() => setStemCellClicked(true)}
         imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
+        hoverable={true}
+        tappable={true}
       />
     </FadeAnimation>
   );

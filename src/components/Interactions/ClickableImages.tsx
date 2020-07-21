@@ -1,11 +1,13 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, TargetAndTransition } from "framer-motion";
 
 interface ClickImage {
   src: string;
   alt?: string;
   visibility?: () => boolean;
   style?: React.CSSProperties;
+  hoverable?: boolean;
+  tappable?: boolean;
 }
 
 interface Props {
@@ -15,7 +17,12 @@ interface Props {
   imgs?: ClickImage[];
   className?: string;
   style?: React.CSSProperties;
+  hoverable?: boolean;
+  tappable?: boolean;
 }
+
+const WHILE_HOVER: TargetAndTransition = { scale: 1.1 };
+const WHILE_TAP: TargetAndTransition = { scale: 0.9 };
 
 export const ClickableImages: React.FC<Props> = ({
   width,
@@ -24,28 +31,43 @@ export const ClickableImages: React.FC<Props> = ({
   imgs = [],
   className,
   style,
+  hoverable = false,
+  tappable = false,
   children,
 }) => {
   return (
-    <div
+    <motion.div
       className={"relative w-full " + className}
       onClick={onClick}
       style={{ width, height, ...style }}
+      whileHover={hoverable ? WHILE_HOVER : undefined}
+      whileTap={tappable ? WHILE_TAP : undefined}
     >
-      {imgs.map(({ src, alt, style, visibility = () => true }) => (
-        <motion.img
-          key={src}
-          className="absolute"
-          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-          draggable={false}
-          src={src}
-          alt={alt}
-          style={style}
-          initial="hidden"
-          animate={visibility() ? "visible" : "hidden"}
-        />
-      ))}
+      {imgs.map(
+        ({
+          src,
+          alt,
+          style,
+          hoverable = false,
+          tappable = false,
+          visibility = () => true,
+        }) => (
+          <motion.img
+            key={src}
+            className="absolute"
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+            draggable={false}
+            src={src}
+            alt={alt}
+            style={style}
+            initial="hidden"
+            whileHover={hoverable ? WHILE_HOVER : undefined}
+            whileTap={tappable ? WHILE_TAP : undefined}
+            animate={visibility() ? "visible" : "hidden"}
+          />
+        )
+      )}
       {children}
-    </div>
+    </motion.div>
   );
 };

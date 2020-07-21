@@ -34,6 +34,8 @@ export const FindingMatchTakesTime: React.FC = () => {
         },
       ]}
       onClick={() => setCount((count + 1) % 4)}
+      hoverable={true}
+      tappable={true}
     />
   );
 

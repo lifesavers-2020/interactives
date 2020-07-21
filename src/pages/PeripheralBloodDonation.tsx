@@ -28,6 +28,8 @@ export const PeripheralBloodDonation: React.FC = () => {
           visibility: () => count > 2,
         },
       ]}
+      hoverable={true}
+      tappable={true}
     />
   );
 

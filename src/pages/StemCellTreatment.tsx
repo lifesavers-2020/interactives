@@ -13,6 +13,8 @@ export const StemCellTreatment: React.FC = () => {
       height={254}
       onClick={() => count < 2 && setCount(count + 1)}
       imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
+      hoverable={true}
+      tappable={true}
     />
   );
 
