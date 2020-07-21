@@ -8,7 +8,7 @@ import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 
 export const FindMatchInCrowd: React.FC = () => {
-  const bgWidth = 1300;
+  const bgWidth = 1000;
   const [dragLeft, setDragLeft] = useState(window.innerWidth - bgWidth);
   const [found, setFound] = useState(false);
   const [foundOld, setFoundOld] = useState(false);
@@ -23,12 +23,12 @@ export const FindMatchInCrowd: React.FC = () => {
           onClick={() => setFound(true)}
           width={80}
           height={120}
-          style={{ left: 810, top: 30 }}
+          style={{ left: 614, top: 28 }}
         />
         {found && (
           <PopAnimation
             className="absolute card bg-white text-center"
-            style={{ width: 150, left: 775, top: 157 }}
+            style={{ width: 150, left: 579, top: 157 }}
           >
             You found a matching donor
           </PopAnimation>
@@ -39,12 +39,12 @@ export const FindMatchInCrowd: React.FC = () => {
           onClick={() => setFoundOld(true)}
           width={80}
           height={120}
-          style={{ left: 392, top: -114 }}
+          style={{ left: 292, top: -114 }}
         />
         {foundOld && (
           <PopAnimation
             className="absolute card bg-white text-center"
-            style={{ width: 150, left: 353, top: 150 }}
+            style={{ width: 150, left: 253, top: 100 }}
           >
             The donor has to be 18-35 years old
           </PopAnimation>
@@ -55,12 +55,12 @@ export const FindMatchInCrowd: React.FC = () => {
           onClick={() => setFoundDiffEthnic(true)}
           width={80}
           height={120}
-          style={{ left: 281, top: -114 }}
+          style={{ left: 205, top: -159 }}
         />
         {foundDiffEthnic && (
           <PopAnimation
             className="absolute card bg-white text-center"
-            style={{ width: 150, left: 248, top: 262 }}
+            style={{ width: 150, left: 172, top: 200 }}
           >
             Match rate is higher within the same ethnic group
           </PopAnimation>
@@ -73,12 +73,12 @@ export const FindMatchInCrowd: React.FC = () => {
     <Scrollable
       drag="x"
       imageWidth={bgWidth}
-      dragConstraints={{ right: 0, left: dragLeft }}
+      dragConstraints={{ right: 0, left: dragLeft - 32 }}
     >
-      <div className="p-4">
+      <div style={{ paddingLeft: 16, paddingRight: 16 }}>
         <ClickableImages
           width={bgWidth}
-          height={428.84}
+          height={338.2}
           imgs={[{ src: "/assets/imgs/find-match-in-crowd/crowd.png" }]}
         >
           <div className="absolute">{DonorAreas}</div>
