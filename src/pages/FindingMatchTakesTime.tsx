@@ -10,7 +10,7 @@ export const FindingMatchTakesTime: React.FC = () => {
     <ClickableImages
       className="flex justify-center"
       width={300}
-      height={353}
+      height={354}
       imgs={[
         {
           src: "/assets/imgs/finding-match-takes-time/spring.png",
@@ -30,7 +30,7 @@ export const FindingMatchTakesTime: React.FC = () => {
         },
         {
           src: "/assets/imgs/finding-match-takes-time/donor.png",
-          style: { height: 353 },
+          style: { paddingTop: 32, height: 353 },
         },
       ]}
       onClick={() => setCount((count + 1) % 4)}
