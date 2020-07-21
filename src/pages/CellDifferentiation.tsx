@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { NextStepButton } from "../components/Share/NextStepButton";
-import { VContainer } from "../Layout/VContainer";
+import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
@@ -40,7 +39,7 @@ export const CellDifferentiation: React.FC = () => {
   );
 
   return (
-    <VContainer>
+    <Layout>
       <div className="flex flex-col justify-around items-center h-full w-full p-4">
         {RegularCell}
         {makeInfoCard(
@@ -53,7 +52,6 @@ export const CellDifferentiation: React.FC = () => {
           "Stem cells, specifically blood stem cells, are immature cells that can develop into any cell present in the bloodstream."
         )}
       </div>
-      <NextStepButton />
-    </VContainer>
+    </Layout>
   );
 };

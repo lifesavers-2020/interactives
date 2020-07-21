@@ -4,12 +4,13 @@ import { FillInDocument } from "../components/RegisterSteps/FillInDocument";
 import { ReceiveTestKit } from "../components/RegisterSteps/ReceiveTestKit";
 import { Swab } from "../components/RegisterSteps/Swab";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
+import { Layout } from "../Layout/Layout";
 
 export const RegisterSteps: React.FC = () => {
   const [step, setStep] = useState(0);
 
   return (
-    <>
+    <Layout>
       <div
         className="absolute"
         onClick={() => step === 0 && setStep(step + 1)}
@@ -49,6 +50,6 @@ export const RegisterSteps: React.FC = () => {
           <PersonHoldingPhone />
         </FadeAnimation>
       </div>
-    </>
+    </Layout>
   );
 };

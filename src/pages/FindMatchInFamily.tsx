@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { VContainer } from "../Layout/VContainer";
-import { NextStepButton } from "../components/Share/NextStepButton";
+import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
@@ -91,12 +90,11 @@ export const FindMatchInFamily: React.FC = () => {
   );
 
   return (
-    <VContainer>
+    <Layout>
       <div className="flex flex-col justify-around items-center h-full w-full p-4">
         {Family}
         {found ? Info : Hint}
       </div>
-      <NextStepButton />
-    </VContainer>
+    </Layout>
   );
 };

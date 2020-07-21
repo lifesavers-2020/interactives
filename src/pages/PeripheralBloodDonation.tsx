@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { VContainer } from "../Layout/VContainer";
-import { NextStepButton } from "../components/Share/NextStepButton";
+import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 
@@ -39,12 +38,11 @@ export const PeripheralBloodDonation: React.FC = () => {
   );
 
   return (
-    <VContainer>
+    <Layout>
       <div className="p-4">
         {Donor}
         {Info}
       </div>
-      <NextStepButton />
-    </VContainer>
+    </Layout>
   );
 };

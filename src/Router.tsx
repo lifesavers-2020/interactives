@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect, Switch } from "wouter";
+import { Route, Redirect, Switch, useLocation } from "wouter";
 import { MatchInFamily } from "./pages/MatchInFamily";
 import { CellDifferentiation } from "./pages/CellDifferentiation";
 import { StemCellTreatment } from "./pages/StemCellTreatment";
@@ -10,6 +10,7 @@ import { FindingMatchTakesTime } from "./pages/FindingMatchTakesTime";
 import { RegisterSteps } from "./pages/RegisterSteps";
 import { FindMatchInFamily } from "./pages/FindMatchInFamily";
 import { FindMatchInCrowd } from "./pages/FindMatchInCrowd";
+import { AnimatePresence } from "framer-motion";
 
 interface RouteDefinition {
   path: string;
@@ -34,11 +35,20 @@ export const routes: RouteDefinition[] = [
 ];
 
 export const Router: React.FC = () => {
+  const [location] = useLocation();
+
   return (
-    <Switch>
-      {routes.map(({ path, component }) => (
-        <Route path={path} component={component} key={path} />
-      ))}
-    </Switch>
+    <div
+      className="w-full h-full"
+      style={{ overflowX: "hidden", position: "relative" }}
+    >
+      <AnimatePresence>
+        <Switch location={location} key={location}>
+          {routes.map(({ path, component }) => (
+            <Route path={path} component={component} key={path} />
+          ))}
+        </Switch>
+      </AnimatePresence>
+    </div>
   );
 };
