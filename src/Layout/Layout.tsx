@@ -1,5 +1,5 @@
 import React from "react";
-import { NextStepButton } from "../components/Share/NextStepButton";
+import { NextStepButton } from "../components/Shared/NextStepButton";
 import { AnimatedContainer } from "./AnimatedContainer";
 
 export const Layout: React.FC = ({ children }) => {

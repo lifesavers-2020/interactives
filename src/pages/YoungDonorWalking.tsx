@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { NextStepButton } from "../components/Share/NextStepButton";
+import { NextStepButton } from "../components/Shared/NextStepButton";
 import { Scrollable } from "../components/Interactions/Scrollable";
-import { useOnResize } from "../components/Share/UseOnResize";
+import { useOnResize } from "../components/Shared/UseOnResize";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { AnimatedContainer } from "../Layout/AnimatedContainer";
 

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { ClickIndicator } from "../Share/ClickIndicator";
+import { ClickIndicator } from "../Shared/ClickIndicator";
 
 interface Props {
   isMatching: () => boolean;
