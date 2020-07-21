@@ -38,10 +38,7 @@ export const Router: React.FC = () => {
   const [location] = useLocation();
 
   return (
-    <div
-      className="w-full h-full"
-      style={{ overflowX: "hidden", position: "relative" }}
-    >
+    <div className="w-full h-full overflow-hidden relative">
       <AnimatePresence>
         <Switch location={location} key={location}>
           {routes.map(({ path, component }) => (
