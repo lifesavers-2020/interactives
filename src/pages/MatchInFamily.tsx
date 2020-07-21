@@ -1,29 +1,44 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { DonorCandidate } from "../components/MatchInFamily/DonorCandidate";
-import { toast } from "react-toastify";
+import React, { useState } from "react";
 import { Layout } from "../Layout/Layout";
+import { ClickableImages } from "../components/Interactions/ClickableImages";
+import { PopAnimation } from "../components/Animations/PopAnimation";
 
 export const MatchInFamily: React.FC = () => {
-  const [count, setCount] = useState(0);
+  const [clicked, setClicked] = useState<Set<number>>(new Set());
 
-  useEffect(() => {
-    if (count < 4) return;
-    toast("Only 25% of people will find the donor in their family.");
-  }, [count]);
+  const makePerson = (i: number, src: string, bw: string) => (
+    <ClickableImages
+      width={150}
+      height={150}
+      imgs={[{ src }, { src: bw, visibility: () => clicked.has(i) }]}
+      onClick={() => clicked.size < 3 && setClicked(new Set(clicked).add(i))}
+      tappable={true}
+      hoverable={true}
+    />
+  );
 
-  const onClick = useCallback(() => {
-    if (count >= 4) return;
-    setCount(count + 1);
-  }, [count, setCount]);
+  const Info = (
+    <div className="p-4">
+      <PopAnimation className="card" visible={() => clicked.size >= 3}>
+        Only 25% of people will find the donor in their family.
+      </PopAnimation>
+    </div>
+  );
 
   return (
     <Layout>
       <div className="grid grid-cols-2 gap-4">
-        <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
-        <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
-        <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
-        <DonorCandidate onClick={onClick} isMatching={() => count < 3} />
+        {[1, 2, 3, 4].map(i => (
+          <React.Fragment key={i}>
+            {makePerson(
+              i,
+              `/assets/imgs/match-in-family/i3-${i}.png`,
+              `/assets/imgs/match-in-family/i3-${i}-bw.png`
+            )}
+          </React.Fragment>
+        ))}
       </div>
+      {Info}
     </Layout>
   );
 };
