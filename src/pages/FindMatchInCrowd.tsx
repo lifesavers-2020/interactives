@@ -180,7 +180,7 @@ export const FindMatchInCrowd: React.FC = () => {
     <VContainer>
       {Crowd}
       {Hint}
-      <NextStepButton to="/more-collectable-stem-cells-in-male" />
+      <NextStepButton />
     </VContainer>
   );
 };

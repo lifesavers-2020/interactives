@@ -48,7 +48,7 @@ export const YoungDonorWalking: React.FC = () => {
   return (
     <>
       <div className="relative py-12" style={{ zIndex: 100 }}>
-        <NextStepButton to="/match-in-family" />
+        <NextStepButton />
       </div>
       <div>
         {WalkingPerson}

@@ -37,7 +37,7 @@ export const StemCellTreatment: React.FC = () => {
           "Bone marrow deficiency diseases such as thalassemia or sickle cell disease."
         )}
       </div>
-      <NextStepButton to="/young-donor" />
+      <NextStepButton />
     </VContainer>
   );
 };

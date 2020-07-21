@@ -51,7 +51,7 @@ export const FindingMatchTakesTime: React.FC = () => {
     <VContainer>
       {Seasons}
       {Info}
-      <NextStepButton to="/register-steps" />
+      <NextStepButton />
     </VContainer>
   );
 };

@@ -53,7 +53,7 @@ export const CellDifferentiation: React.FC = () => {
           "Stem cells, specifically blood stem cells, are immature cells that can develop into any cell present in the bloodstream."
         )}
       </div>
-      <NextStepButton to="/stem-cell-treatment" />
+      <NextStepButton />
     </VContainer>
   );
 };

@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { routes } from "../../Router";
 
-interface Props {
-  to: string;
-}
+const nextRoute = (location: string) => {
+  const currentIndex = routes.findIndex(r => r.path === location);
+  return routes[currentIndex + 1].path;
+};
 
-export const NextStepButton: React.FC<Props> = ({ to }) => {
+export const NextStepButton: React.FC = () => {
+  const [location] = useLocation();
+  const to = nextRoute(location);
+
   return (
     <div className="p-4 w-full">
       <Link to={to}>

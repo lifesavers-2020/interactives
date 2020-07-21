@@ -44,7 +44,7 @@ export const PeripheralBloodDonation: React.FC = () => {
         {Donor}
         {Info}
       </div>
-      <NextStepButton to="/find-match-takes-time" />
+      <NextStepButton />
     </VContainer>
   );
 };

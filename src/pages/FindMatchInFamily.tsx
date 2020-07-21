@@ -96,7 +96,7 @@ export const FindMatchInFamily: React.FC = () => {
         {Family}
         {found ? Info : Hint}
       </div>
-      <NextStepButton to="/find-match-in-crowd" />
+      <NextStepButton />
     </VContainer>
   );
 };

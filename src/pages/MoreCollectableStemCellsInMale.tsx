@@ -53,7 +53,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
         </div>
         {Info}
       </div>
-      <NextStepButton to="/peripheral-blood-donation" />
+      <NextStepButton />
     </VContainer>
   );
 };
