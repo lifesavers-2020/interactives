@@ -5,6 +5,7 @@ interface ClickImage {
   src: string;
   alt?: string;
   visibility?: () => boolean;
+  style?: React.CSSProperties;
 }
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   height?: number | string;
   onClick?: () => void;
   imgs?: ClickImage[];
+  className?: string;
   style?: React.CSSProperties;
 }
 
@@ -20,16 +22,17 @@ export const ClickableImages: React.FC<Props> = ({
   height,
   onClick,
   imgs = [],
+  className,
   style,
   children,
 }) => {
   return (
     <div
-      className="relative w-full"
+      className={"relative w-full " + className}
       onClick={onClick}
       style={{ width, height, ...style }}
     >
-      {imgs.map(({ src, alt, visibility = () => true }) => (
+      {imgs.map(({ src, alt, style, visibility = () => true }) => (
         <motion.img
           key={src}
           className="absolute"
@@ -37,6 +40,7 @@ export const ClickableImages: React.FC<Props> = ({
           draggable={false}
           src={src}
           alt={alt}
+          style={style}
           initial="hidden"
           animate={visibility() ? "visible" : "hidden"}
         />
