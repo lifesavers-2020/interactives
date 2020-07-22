@@ -8,8 +8,6 @@ import { MoreCollectableStemCellsInMale } from "./pages/MoreCollectableStemCells
 import { PeripheralBloodDonation } from "./pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "./pages/FindingMatchTakesTime";
 import { RegisterSteps } from "./pages/RegisterSteps";
-import { FindMatchInFamily } from "./pages/FindMatchInFamily";
-import { FindMatchInCrowd } from "./pages/FindMatchInCrowd";
 import { AnimatePresence } from "framer-motion";
 
 interface RouteDefinition {
@@ -23,8 +21,8 @@ export const routes: RouteDefinition[] = [
   { path: "/stem-cell-treatment", component: StemCellTreatment },
   { path: "/young-donor", component: YoungDonorWalking },
   { path: "/match-in-family", component: MatchInFamily },
-  { path: "/find-match-in-family", component: FindMatchInFamily },
-  { path: "/find-match-in-crowd", component: FindMatchInCrowd },
+  // { path: "/find-match-in-family", component: FindMatchInFamily },
+  // { path: "/find-match-in-crowd", component: FindMatchInCrowd },
   {
     path: "/more-collectable-stem-cells-in-male",
     component: MoreCollectableStemCellsInMale,
