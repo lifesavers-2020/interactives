@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export const Banner: React.FC = () => {
   const width = 120;
@@ -11,7 +12,12 @@ export const Banner: React.FC = () => {
         rel="noopener noreferrer"
         style={{ width }}
       >
-        <button className="w-full">Register</button>
+        <motion.button
+          className="w-full register-button"
+          whileTap={{ scale: 0.9 }}
+        >
+          Register Now
+        </motion.button>
       </a>
     </div>
   );

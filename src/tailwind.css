@@ -55,3 +55,21 @@ button.full {
   @apply w-full;
   @apply mx-auto;
 }
+
+.register-button {
+  @apply py-2;
+  @apply rounded-full;
+  border: double 0.3rem transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(
+      135deg,
+      rgba(237, 28, 36, 1) 0%,
+      rgba(167, 14, 19, 1) 50%,
+      rgba(103, 175, 169, 1) 50%,
+      rgba(103, 175, 169, 1) 60%,
+      rgba(84, 195, 187, 1) 60%,
+      rgba(84, 195, 187, 1) 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
