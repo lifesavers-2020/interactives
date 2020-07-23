@@ -10,6 +10,12 @@ body,
   @apply select-none;
 }
 
+#root {
+  background: #54c3bf
+    radial-gradient(circle, #ffffffff 0%, #ffffffdd 72%, #ffffff00 100%) 0% 0%
+    no-repeat padding-box;
+}
+
 .card {
   @apply rounded;
   @apply shadow;
