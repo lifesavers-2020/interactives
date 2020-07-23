@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const AnimatedContainer: React.FC = ({ children }) => {
+export const PageTransition: React.FC = ({ children }) => {
   return (
     <motion.div
       className="absolute flex flex-col justify-between h-full w-full"
