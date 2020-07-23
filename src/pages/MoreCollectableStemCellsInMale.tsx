@@ -2,47 +2,55 @@ import React, { useState } from "react";
 import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
+import { ClickIndicator } from "../components/Shared/ClickIndicator";
 
 export const MoreCollectableStemCellsInMale: React.FC = () => {
   const [showMaleBg, setShowMaleBg] = useState(false);
   const [showFemaleBg, setShowFemaleBg] = useState(false);
 
   const Female = (
-    <ClickableImages
-      width={150}
-      height={442.91}
-      onClick={() => setShowFemaleBg(true)}
-      imgs={[
-        { src: "/assets/imgs/more-collectable-stem-cells-in-male/female.png" },
-        {
-          src: "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
-          visibility: () => showFemaleBg,
-          tappable: false,
-          hoverable: false,
-        },
-      ]}
-      hoverable={true}
-      tappable={true}
-    />
+    <ClickIndicator visible={() => !showFemaleBg}>
+      <ClickableImages
+        width={150}
+        height={442.91}
+        onClick={() => setShowFemaleBg(true)}
+        imgs={[
+          {
+            src: "/assets/imgs/more-collectable-stem-cells-in-male/female.png",
+          },
+          {
+            src:
+              "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
+            visibility: () => showFemaleBg,
+            tappable: false,
+            hoverable: false,
+          },
+        ]}
+        hoverable={true}
+        tappable={true}
+      />
+    </ClickIndicator>
   );
 
   const Male = (
-    <ClickableImages
-      width={150}
-      height={442.91}
-      onClick={() => setShowMaleBg(true)}
-      imgs={[
-        { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },
-        {
-          src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
-          visibility: () => showMaleBg,
-          tappable: false,
-          hoverable: false,
-        },
-      ]}
-      hoverable={true}
-      tappable={true}
-    />
+    <ClickIndicator visible={() => !showMaleBg}>
+      <ClickableImages
+        width={150}
+        height={442.91}
+        onClick={() => setShowMaleBg(true)}
+        imgs={[
+          { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },
+          {
+            src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
+            visibility: () => showMaleBg,
+            tappable: false,
+            hoverable: false,
+          },
+        ]}
+        hoverable={true}
+        tappable={true}
+      />
+    </ClickIndicator>
   );
 
   const Info = (

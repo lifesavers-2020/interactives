@@ -1,22 +1,32 @@
 import React from "react";
 
 interface Props {
-  xOffset?: number;
-  yOffset?: number;
+  right?: string | number;
+  bottom?: string | number;
+  visible?: () => boolean;
 }
 
 export const ClickIndicator: React.FC<Props> = ({
-  xOffset = 0,
-  yOffset = 0,
+  right = "15%",
+  bottom = "15%",
+  visible = () => true,
+  children,
 }) => {
   return (
-    <div className="absolute" style={{ pointerEvents: "none" }}>
+    <div className="relative">
+      {children}
       <img
-        className="relative"
+        className="absolute"
         width={45}
         src="/assets/imgs/shared/click.gif"
         alt=""
-        style={{ left: xOffset, top: yOffset }}
+        style={{
+          width: 45,
+          right,
+          bottom,
+          pointerEvents: "none",
+          visibility: visible() ? "visible" : "hidden",
+        }}
         draggable={false}
       />
     </div>

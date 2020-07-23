@@ -3,19 +3,22 @@ import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
+import { ClickIndicator } from "../components/Shared/ClickIndicator";
 
 export const StemCellTreatment: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const StemCell = (
-    <ClickableImages
-      width={254}
-      height={254}
-      onClick={() => count < 2 && setCount(count + 1)}
-      imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
-      hoverable={true}
-      tappable={true}
-    />
+    <ClickIndicator visible={() => count < 2}>
+      <ClickableImages
+        width={254}
+        height={254}
+        onClick={() => count < 2 && setCount(count + 1)}
+        imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
+        hoverable={true}
+        tappable={true}
+      />
+    </ClickIndicator>
   );
 
   const makeInfoCard = (visible: () => boolean, info: string) => (

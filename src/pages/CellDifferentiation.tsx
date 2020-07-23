@@ -3,6 +3,7 @@ import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
+import { ClickIndicator } from "../components/Shared/ClickIndicator";
 
 export const CellDifferentiation: React.FC = () => {
   const [regularClicked, setRegularClicked] = useState(false);
@@ -10,14 +11,16 @@ export const CellDifferentiation: React.FC = () => {
 
   const RegularCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
-      <ClickableImages
-        width={250}
-        height={187}
-        onClick={() => setRegularClicked(true)}
-        imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
-        hoverable={true}
-        tappable={true}
-      />
+      <ClickIndicator visible={() => !regularClicked}>
+        <ClickableImages
+          width={250}
+          height={187}
+          onClick={() => setRegularClicked(true)}
+          imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
+          hoverable={true}
+          tappable={true}
+        />
+      </ClickIndicator>
       <h2 className="text-center my-2 text-xl">Regular Cells</h2>
     </FadeAnimation>
   );
@@ -25,14 +28,16 @@ export const CellDifferentiation: React.FC = () => {
   const StemCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
       <h2 className="text-center my-2 text-xl">Stem Cells</h2>
-      <ClickableImages
-        width={200}
-        height={200}
-        onClick={() => setStemCellClicked(true)}
-        imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
-        hoverable={true}
-        tappable={true}
-      />
+      <ClickIndicator visible={() => !stemCellClicked}>
+        <ClickableImages
+          width={200}
+          height={200}
+          onClick={() => setStemCellClicked(true)}
+          imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
+          hoverable={true}
+          tappable={true}
+        />
+      </ClickIndicator>
     </FadeAnimation>
   );
 

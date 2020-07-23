@@ -2,19 +2,26 @@ import React, { useState } from "react";
 import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
+import { ClickIndicator } from "../components/Shared/ClickIndicator";
 
 export const MatchInFamily: React.FC = () => {
   const [clicked, setClicked] = useState<Set<number>>(new Set());
 
   const makePerson = (i: number, src: string, bw: string) => (
-    <ClickableImages
-      width={150}
-      height={150}
-      imgs={[{ src }, { src: bw, visibility: () => clicked.has(i) }]}
-      onClick={() => clicked.size < 3 && setClicked(new Set(clicked).add(i))}
-      tappable={true}
-      hoverable={true}
-    />
+    <ClickIndicator
+      right={0}
+      bottom={0}
+      visible={() => !clicked.has(i) && clicked.size < 3}
+    >
+      <ClickableImages
+        width={150}
+        height={150}
+        imgs={[{ src }, { src: bw, visibility: () => clicked.has(i) }]}
+        onClick={() => clicked.size < 3 && setClicked(new Set(clicked).add(i))}
+        tappable={true}
+        hoverable={true}
+      />
+    </ClickIndicator>
   );
 
   const Info = (
