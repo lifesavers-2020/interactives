@@ -2,6 +2,7 @@ import React from "react";
 import { NextStepButton } from "../components/Shared/NextStepButton";
 import { PageTransition } from "../components/Animations/PageTransition";
 import { Banner } from "../components/Shared/Banner";
+import { Divider } from "../components/Shared/Divider";
 
 export const Layout: React.FC = ({ children }) => {
   return (
@@ -9,8 +10,14 @@ export const Layout: React.FC = ({ children }) => {
       <div className="flex-none p-4">
         <NextStepButton />
       </div>
+      <div className="flex flex-row justify-center">
+        <Divider />
+      </div>
       <div className="flex-auto flex flex-col justify-around items-center h-full w-full">
         {children}
+      </div>
+      <div className="flex flex-row justify-center">
+        <Divider />
       </div>
       <div className="flex-none p-4">
         <Banner />
