@@ -31,7 +31,6 @@ export const ProgressBar: React.FC<Props> = ({ percentage }) => {
           height: dotDim,
           width: dotDim,
           borderRadius: "50%",
-          top: -padding / 2,
           left: `calc(${percentage}% - ${dotDim / 2}px)`,
         }}
       />
