@@ -14,12 +14,13 @@ body,
   @apply h-screen;
   @apply select-none;
   font-family: "Source Sans Pro", sans-serif;
+  color: #4d4d4d;
   touch-action: manipulation;
   overscroll-behavior: none;
 }
 
 #root {
-  background: #54c3bf
+  background: #54c3bb
     radial-gradient(circle, #ffffffff 0%, #ffffffdd 72%, #ffffff00 100%) 0% 0%
     no-repeat padding-box;
 }
@@ -60,7 +61,7 @@ button.full {
     linear-gradient(
       129deg,
       rgba(84, 195, 187, 0.5) 0%,
-      rgba(103, 175, 169, 0.5) 50%,
+      rgba(65, 155, 150, 0.5) 50%,
       rgba(167, 14, 19, 0.5) 50%,
       rgba(167, 14, 19, 0.5) 54%,
       rgba(237, 28, 36, 0.5) 54%,
@@ -79,8 +80,8 @@ button.full {
       135deg,
       rgba(237, 28, 36, 1) 0%,
       rgba(167, 14, 19, 1) 50%,
-      rgba(103, 175, 169, 1) 50%,
-      rgba(103, 175, 169, 1) 60%,
+      rgba(65, 155, 150, 1) 50%,
+      rgba(65, 155, 150, 1) 60%,
       rgba(84, 195, 187, 1) 60%,
       rgba(84, 195, 187, 1) 100%
     );

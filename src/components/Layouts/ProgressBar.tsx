@@ -4,7 +4,7 @@ interface Props {
   percentage: number;
 }
 
-const ProgressBackground = `linear-gradient(86deg, rgba(77,77,77,1) 0%, rgba(140,140,140,1) 100%)`;
+const ProgressBackground = `linear-gradient(90deg, rgba(77,77,77,1) 0%, rgba(140,140,140,1) 100%)`;
 const ProgressColor = `linear-gradient(90deg, rgba(237,28,36,1) 0%, rgba(81,144,139,1) 54%, rgba(84,195,187,1) 100%)`;
 
 export const ProgressBar: React.FC<Props> = ({ percentage }) => {
