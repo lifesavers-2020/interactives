@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
@@ -33,7 +32,7 @@ export const MatchInFamily: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <>
       <div className="grid grid-cols-2 gap-4">
         {[1, 2, 3, 4].map(i => (
           <React.Fragment key={i}>
@@ -46,6 +45,6 @@ export const MatchInFamily: React.FC = () => {
         ))}
       </div>
       {Info}
-    </Layout>
+    </>
   );
 };

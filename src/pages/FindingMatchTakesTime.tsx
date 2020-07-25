@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
@@ -52,9 +51,9 @@ export const FindingMatchTakesTime: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <>
       {Seasons}
       {Info}
-    </Layout>
+    </>
   );
 };

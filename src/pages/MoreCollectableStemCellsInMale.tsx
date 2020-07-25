@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
@@ -60,7 +59,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <>
       <div className="p-4">
         <div className="flex flex-row justify-around">
           {Female}
@@ -68,6 +67,6 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
         </div>
         {Info}
       </div>
-    </Layout>
+    </>
   );
 };

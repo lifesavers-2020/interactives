@@ -3,7 +3,6 @@ import { NextStepButton } from "../components/Shared/NextStepButton";
 import { Scrollable } from "../components/Interactions/Scrollable";
 import { useOnResize } from "../components/Shared/UseOnResize";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
-import { PageTransition } from "../components/Animations/PageTransition";
 
 export const YoungDonorWalking: React.FC = () => {
   const bgWidth = 1500;
@@ -47,7 +46,7 @@ export const YoungDonorWalking: React.FC = () => {
   );
 
   return (
-    <PageTransition>
+    <>
       <div className="relative py-12 px-4" style={{ zIndex: 100 }}>
         <NextStepButton />
       </div>
@@ -55,6 +54,6 @@ export const YoungDonorWalking: React.FC = () => {
         {WalkingPerson}
         {Background}
       </div>
-    </PageTransition>
+    </>
   );
 };

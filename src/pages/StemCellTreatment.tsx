@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
@@ -28,7 +27,7 @@ export const StemCellTreatment: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <>
       <div className="flex flex-col justify-around items-center p-4 w-full h-full">
         {makeInfoCard(
           () => count > 0,
@@ -41,6 +40,6 @@ export const StemCellTreatment: React.FC = () => {
           "Bone marrow deficiency diseases such as thalassemia or sickle cell disease."
         )}
       </div>
-    </Layout>
+    </>
   );
 };

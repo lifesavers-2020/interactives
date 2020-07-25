@@ -8,7 +8,7 @@ import { MoreCollectableStemCellsInMale } from "./pages/MoreCollectableStemCells
 import { PeripheralBloodDonation } from "./pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "./pages/FindingMatchTakesTime";
 import { RegisterSteps } from "./pages/RegisterSteps";
-import { AnimatePresence } from "framer-motion";
+import { Layout } from "./Layout/Layout";
 
 interface RouteDefinition {
   path: string;
@@ -36,14 +36,12 @@ export const Router: React.FC = () => {
   const [location] = useLocation();
 
   return (
-    <div className="w-full h-full overflow-hidden relative">
-      <AnimatePresence>
-        <Switch location={location} key={location}>
-          {routes.map(({ path, component }) => (
-            <Route path={path} component={component} key={path} />
-          ))}
-        </Switch>
-      </AnimatePresence>
-    </div>
+    <Layout>
+      <Switch location={location} key={location}>
+        {routes.map(({ path, component }) => (
+          <Route path={path} component={component} key={path} />
+        ))}
+      </Switch>
+    </Layout>
   );
 };

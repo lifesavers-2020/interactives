@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { Scrollable } from "../components/Interactions/Scrollable";
-import { Layout } from "../Layout/Layout";
 import { useOnResize } from "../components/Shared/UseOnResize";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { PopAnimation } from "../components/Animations/PopAnimation";
@@ -176,9 +175,9 @@ export const FindMatchInCrowd: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <>
       {Crowd}
       {Hint}
-    </Layout>
+    </>
   );
 };

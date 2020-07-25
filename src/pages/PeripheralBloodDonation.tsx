@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Layout } from "../Layout/Layout";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
@@ -45,9 +44,9 @@ export const PeripheralBloodDonation: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <>
       {Donor}
       {Info}
-    </Layout>
+    </>
   );
 };
