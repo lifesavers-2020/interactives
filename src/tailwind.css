@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("/assets/fonts/SourceSansPro-Regular.ttf");
+}
+
 html,
 body,
 #root {
   @apply w-screen;
   @apply h-screen;
   @apply select-none;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 #root {
@@ -57,7 +63,7 @@ button.full {
 }
 
 .register-button {
-  @apply py-2;
+  @apply py-1;
   @apply rounded-full;
   border: double 0.3rem transparent;
   background-image: linear-gradient(white, white),
