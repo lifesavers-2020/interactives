@@ -13,11 +13,9 @@ export const Layout: React.FC = ({ children }) => {
       <div className="flex-none flex flex-row justify-center">
         <Divider />
       </div>
-      <PageTransition>
-        <div className="flex-auto flex flex-col justify-around items-center h-full w-full">
-          {children}
-        </div>
-      </PageTransition>
+      <div className="relative flex-auto flex flex-col justify-around items-center h-full w-full">
+        <PageTransition>{children}</PageTransition>
+      </div>
       <div className="flex-none flex flex-row justify-center">
         <Divider />
       </div>
