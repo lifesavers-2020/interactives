@@ -44,17 +44,15 @@ export const PeripheralBloodDonation: React.FC = () => {
   );
 
   const Info = (
-    <div className="p-4">
-      <PopAnimation className="card" visible={() => count > 2}>
-        80% of stem cell transplants are done through peripheral blood donation.
-      </PopAnimation>
-    </div>
+    <PopAnimation className="card" visible={() => count > 2}>
+      80% of stem cell transplants are done through peripheral blood donation.
+    </PopAnimation>
   );
 
   return (
-    <>
+    <div className="vcontainer">
       {Donor}
       {Info}
-    </>
+    </div>
   );
 };

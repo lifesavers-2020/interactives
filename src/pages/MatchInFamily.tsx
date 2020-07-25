@@ -31,15 +31,13 @@ export const MatchInFamily: React.FC = () => {
   );
 
   const Info = (
-    <div className="p-4">
-      <PopAnimation className="card" visible={() => clicked.size >= 3}>
-        Only 25% of people will find the donor in their family.
-      </PopAnimation>
-    </div>
+    <PopAnimation className="card" visible={() => clicked.size >= 3}>
+      Only 25% of people will find the donor in their family.
+    </PopAnimation>
   );
 
   return (
-    <>
+    <div className="vcontainer">
       <div className="grid grid-cols-2 gap-4 my-2">
         {[1, 2, 3, 4].map(i => (
           <React.Fragment key={i}>
@@ -52,6 +50,6 @@ export const MatchInFamily: React.FC = () => {
         ))}
       </div>
       {Info}
-    </>
+    </div>
   );
 };

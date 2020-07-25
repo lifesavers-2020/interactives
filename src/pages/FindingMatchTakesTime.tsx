@@ -50,18 +50,16 @@ export const FindingMatchTakesTime: React.FC = () => {
   );
 
   const Info = (
-    <div className="p-4">
-      <PopAnimation className="card" visible={() => count >= 0}>
-        Finding a match takes time, patience and a donor's commitment to donate
-        stem cells when the time comes to save a life.
-      </PopAnimation>
-    </div>
+    <PopAnimation className="card" visible={() => count >= 0}>
+      Finding a match takes time, patience and a donor's commitment to donate
+      stem cells when the time comes to save a life.
+    </PopAnimation>
   );
 
   return (
-    <>
+    <div className="vcontainer">
       {Seasons}
       {Info}
-    </>
+    </div>
   );
 };

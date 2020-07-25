@@ -26,6 +26,12 @@ export const StemCellTreatment: React.FC = () => {
     </ClickIndicator>
   );
 
+  const Description = (
+    <FadeAnimation>
+      <h2>Different diseases stem cells can treat</h2>
+    </FadeAnimation>
+  );
+
   const makeInfoCard = (visible: () => boolean, info: string) => (
     <PopAnimation className="card" visible={visible}>
       {info}
@@ -33,19 +39,17 @@ export const StemCellTreatment: React.FC = () => {
   );
 
   return (
-    <>
-      <div className="flex flex-col justify-around items-center p-4 w-full h-full">
-        {makeInfoCard(
-          () => count > 0,
-          "Various types of blood cancers such as leukemia, lymphoma or myeloma."
-        )}
-        {StemCell}
-        <FadeAnimation>Different diseases stem cells can treat</FadeAnimation>
-        {makeInfoCard(
-          () => count > 1,
-          "Bone marrow deficiency diseases such as thalassemia or sickle cell disease."
-        )}
-      </div>
-    </>
+    <div className="vcontainer">
+      {makeInfoCard(
+        () => count > 0,
+        "Various types of blood cancers such as leukemia, lymphoma or myeloma."
+      )}
+      {StemCell}
+      {Description}
+      {makeInfoCard(
+        () => count > 1,
+        "Bone marrow deficiency diseases such as thalassemia or sickle cell disease."
+      )}
+    </div>
   );
 };

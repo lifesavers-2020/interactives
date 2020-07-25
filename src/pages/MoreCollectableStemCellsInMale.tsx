@@ -65,14 +65,12 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   return (
-    <>
-      <div className="p-4">
-        <div className="flex flex-row justify-around">
-          {Female}
-          {Male}
-        </div>
-        {Info}
+    <div className="vcontainer">
+      <div className="flex flex-row justify-around content-end">
+        {Female}
+        {Male}
       </div>
-    </>
+      {Info}
+    </div>
   );
 };

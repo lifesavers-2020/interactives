@@ -52,9 +52,9 @@ export const YoungDonorWalking: React.FC = () => {
   );
 
   return (
-    <>
+    <div className="vcontainer">
       {WalkingPerson}
       {Background}
-    </>
+    </div>
   );
 };

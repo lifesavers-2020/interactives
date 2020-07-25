@@ -26,13 +26,13 @@ export const CellDifferentiation: React.FC = () => {
           tappable={true}
         />
       </ClickIndicator>
-      <h2 className="text-center my-2 text-xl">Regular Cells</h2>
+      <h2>Regular Cells</h2>
     </FadeAnimation>
   );
 
   const StemCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
-      <h2 className="text-center my-2 text-xl">Stem Cells</h2>
+      <h2>Stem Cells</h2>
       <ClickIndicator visible={() => !stemCellClicked}>
         <ClickableImages
           width={160}
@@ -53,19 +53,17 @@ export const CellDifferentiation: React.FC = () => {
   );
 
   return (
-    <>
-      <div className="flex flex-col justify-around items-center h-full w-full p-4">
-        {RegularCell}
-        {makeInfoCard(
-          () => regularClicked,
-          "Regular cells have specific jobs that are assigned to them. They cannot develop into any cell present in the bloodstream."
-        )}
-        {StemCell}
-        {makeInfoCard(
-          () => stemCellClicked,
-          "Stem cells, specifically blood stem cells, are immature cells that can develop into any cell present in the bloodstream."
-        )}
-      </div>
-    </>
+    <div className="vcontainer">
+      {RegularCell}
+      {makeInfoCard(
+        () => regularClicked,
+        "Regular cells have specific jobs that are assigned to them. They cannot develop into any cell present in the bloodstream."
+      )}
+      {StemCell}
+      {makeInfoCard(
+        () => stemCellClicked,
+        "Stem cells, specifically blood stem cells, are immature cells that can develop into any cell present in the bloodstream."
+      )}
+    </div>
   );
 };
