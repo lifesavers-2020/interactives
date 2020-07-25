@@ -14,11 +14,13 @@ export const PageChangeButton: React.FC<Props> = ({
   return (
     <img
       onClick={onClick}
-      src={`/assets/imgs/shared/arrow-${
-        backward ? "left" : "right"
-      }-circle.svg`}
+      src={`/assets/imgs/shared/arrow-right.png`}
       alt=""
-      style={{ opacity: disabled ? 0.2 : undefined }}
+      width={24}
+      style={{
+        opacity: disabled ? 0.2 : undefined,
+        transform: `scaleX(${backward ? "-1" : "1"})`,
+      }}
     />
   );
 };
