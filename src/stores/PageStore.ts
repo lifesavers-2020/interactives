@@ -35,7 +35,7 @@ export class PageStore {
   }
 
   @observable public canGoPrevious() {
-    return this.page > 1;
+    return this.page > 0;
   }
 
   @action public pushPageLimit() {

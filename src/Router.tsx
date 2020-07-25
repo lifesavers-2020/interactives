@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect, Switch, useLocation } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import { MatchInFamily } from "./pages/MatchInFamily";
 import { CellDifferentiation } from "./pages/CellDifferentiation";
 import { StemCellTreatment } from "./pages/StemCellTreatment";
@@ -16,8 +16,7 @@ interface RouteDefinition {
 }
 
 export const routes: RouteDefinition[] = [
-  { path: "/", component: () => <Redirect to="/cell-differentiation" /> },
-  { path: "/cell-differentiation", component: CellDifferentiation },
+  { path: "/", component: CellDifferentiation },
   { path: "/stem-cell-treatment", component: StemCellTreatment },
   { path: "/young-donor", component: YoungDonorWalking },
   { path: "/match-in-family", component: MatchInFamily },
