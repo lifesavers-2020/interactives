@@ -1,17 +1,43 @@
-import { useLocation } from "wouter";
 import { createContext } from "react";
 import { observable, action } from "mobx";
-import { routes } from "../Router";
+import { CellDifferentiation } from "../pages/CellDifferentiation";
+import { StemCellTreatment } from "../pages/StemCellTreatment";
+import { YoungDonorWalking } from "../pages/YoungDonorWalking";
+import { MatchInFamily } from "../pages/MatchInFamily";
+import { MoreCollectableStemCellsInMale } from "../pages/MoreCollectableStemCellsInMale";
+import { PeripheralBloodDonation } from "../pages/PeripheralBloodDonation";
+import { FindingMatchTakesTime } from "../pages/FindingMatchTakesTime";
+import { RegisterSteps } from "../pages/RegisterSteps";
+
+interface RouteDefinition {
+  path: string;
+  component: React.FC<any>;
+}
+
+export const pages: RouteDefinition[] = [
+  { path: "/", component: CellDifferentiation },
+  { path: "/stem-cell-treatment", component: StemCellTreatment },
+  { path: "/young-donor", component: YoungDonorWalking },
+  { path: "/match-in-family", component: MatchInFamily },
+  // { path: "/find-match-in-family", component: FindMatchInFamily },
+  // { path: "/find-match-in-crowd", component: FindMatchInCrowd },
+  {
+    path: "/more-collectable-stem-cells-in-male",
+    component: MoreCollectableStemCellsInMale,
+  },
+  { path: "/peripheral-blood-donation", component: PeripheralBloodDonation },
+  { path: "/find-match-takes-time", component: FindingMatchTakesTime },
+  { path: "/register-steps", component: RegisterSteps },
+];
 
 export class PageStore {
   private static _instance: PageStore;
   private static _context: React.Context<PageStore>;
 
-  public location = useLocation()[0];
-  public setLocation = useLocation()[1];
-
   @observable public direction = 0;
-  @observable public page = routes.findIndex(r => r.path === this.location);
+  @observable public page = pages.findIndex(
+    r => r.path === window.location.pathname
+  );
 
   /* To prevent user click next before seeing the content */
   @observable public pageLimit = this.page;
@@ -27,11 +53,11 @@ export class PageStore {
   }
 
   @observable public percentage() {
-    return (this.page / (routes.length - 1)) * 100;
+    return (this.page / (pages.length - 1)) * 100;
   }
 
   @observable public canGoNext() {
-    return this.page < routes.length - 1 && this.page < this.pageLimit;
+    return this.page < pages.length - 1 && this.page < this.pageLimit;
   }
 
   @observable public canGoPrevious() {
@@ -43,16 +69,18 @@ export class PageStore {
   }
 
   @action public nextPage() {
-    if (!this.canGoNext()) return;
-    this.page++;
-    this.direction = 1;
-    this.setLocation(routes[this.page].path);
+    if (this.canGoNext()) {
+      this.page++;
+      this.direction = 1;
+    }
+    return pages[this.page].path;
   }
 
   @action public previousPage() {
-    if (!this.canGoPrevious()) return;
-    this.page--;
-    this.direction = -1;
-    this.setLocation(routes[this.page].path);
+    if (this.canGoPrevious()) {
+      this.page--;
+      this.direction = -1;
+    }
+    return pages[this.page].path;
   }
 }
