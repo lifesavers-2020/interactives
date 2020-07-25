@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import { NextStepButton } from "../components/Shared/NextStepButton";
+import React, { useState, useContext, useEffect } from "react";
 import { Scrollable } from "../components/Interactions/Scrollable";
 import { useOnResize } from "../components/Shared/UseOnResize";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
+import { PageStore } from "../stores/PageStore";
 
 export const YoungDonorWalking: React.FC = () => {
   const bgWidth = 1500;
   const [dragLeft, setDragLeft] = useState(window.innerWidth - bgWidth);
+  const pageStore = useContext(PageStore.context());
+
+  useEffect(() => {
+    // TODO: After scroll, push page limit
+    pageStore.pushPageLimit();
+  }, [pageStore]);
 
   useOnResize(() => setDragLeft(window.innerWidth - bgWidth), 200);
 
@@ -47,13 +53,8 @@ export const YoungDonorWalking: React.FC = () => {
 
   return (
     <>
-      <div className="relative py-12 px-4" style={{ zIndex: 100 }}>
-        <NextStepButton />
-      </div>
-      <div>
-        {WalkingPerson}
-        {Background}
-      </div>
+      {WalkingPerson}
+      {Background}
     </>
   );
 };

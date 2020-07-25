@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
+import { PageStore } from "../stores/PageStore";
 
 export const PeripheralBloodDonation: React.FC = () => {
   const [count, setCount] = useState(0);
+  const pageStore = useContext(PageStore.context());
+
+  useEffect(() => {
+    if (count >= 3) pageStore.pushPageLimit();
+  }, [count, pageStore]);
 
   const Donor = (
     <ClickIndicator visible={() => count < 3}>

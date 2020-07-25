@@ -13,6 +13,9 @@ export class PageStore {
   @observable public direction = 0;
   @observable public page = routes.findIndex(r => r.path === this.location);
 
+  /* To prevent user click next before seeing the content */
+  @observable public pageLimit = this.page;
+
   public static instance() {
     if (!this._instance) this._instance = new PageStore();
     return this._instance;
@@ -28,11 +31,15 @@ export class PageStore {
   }
 
   @observable public canGoNext() {
-    return this.page < routes.length - 1;
+    return this.page < routes.length - 1 && this.page < this.pageLimit;
   }
 
   @observable public canGoPrevious() {
     return this.page > 1;
+  }
+
+  @action public pushPageLimit() {
+    this.pageLimit = Math.max(this.pageLimit, this.page + 1);
   }
 
   @action public nextPage() {

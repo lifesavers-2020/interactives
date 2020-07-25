@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
+import { PageStore } from "../stores/PageStore";
 
 export const StemCellTreatment: React.FC = () => {
   const [count, setCount] = useState(0);
+  const pageStore = useContext(PageStore.context());
+
+  useEffect(() => {
+    if (count >= 2) pageStore.pushPageLimit();
+  }, [count, pageStore]);
 
   const StemCell = (
     <ClickIndicator visible={() => count < 2}>

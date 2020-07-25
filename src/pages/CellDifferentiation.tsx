@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ClickableImages } from "../components/Interactions/ClickableImages";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
+import { PageStore } from "../stores/PageStore";
 
 export const CellDifferentiation: React.FC = () => {
   const [regularClicked, setRegularClicked] = useState(false);
   const [stemCellClicked, setStemCellClicked] = useState(false);
+  const pageStore = useContext(PageStore.context());
+
+  useEffect(() => {
+    if (regularClicked && stemCellClicked) pageStore.pushPageLimit();
+  }, [regularClicked, stemCellClicked, pageStore]);
 
   const RegularCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
       <ClickIndicator visible={() => !regularClicked}>
         <ClickableImages
-          width={250}
-          height={187}
+          width={200}
+          height={158.83}
           onClick={() => setRegularClicked(true)}
           imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
           hoverable={true}
@@ -29,8 +35,8 @@ export const CellDifferentiation: React.FC = () => {
       <h2 className="text-center my-2 text-xl">Stem Cells</h2>
       <ClickIndicator visible={() => !stemCellClicked}>
         <ClickableImages
-          width={200}
-          height={200}
+          width={160}
+          height={160}
           onClick={() => setStemCellClicked(true)}
           imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
           hoverable={true}
