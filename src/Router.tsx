@@ -8,7 +8,7 @@ import { MoreCollectableStemCellsInMale } from "./pages/MoreCollectableStemCells
 import { PeripheralBloodDonation } from "./pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "./pages/FindingMatchTakesTime";
 import { RegisterSteps } from "./pages/RegisterSteps";
-import { Layout } from "./Layout/Layout";
+import { Layout } from "./components/Layouts/Layout";
 
 interface RouteDefinition {
   path: string;

@@ -1,8 +1,8 @@
 import React from "react";
-import { PageTransition } from "../components/Animations/PageTransition";
-import { Banner } from "../components/Layouts/Banner";
-import { Divider } from "../components/Layouts/Divider";
-import { ProgressOverview } from "../components/Layouts/ProgressOverview";
+import { PageTransition } from "../Animations/PageTransition";
+import { Banner } from "./Banner";
+import { Divider } from "./Divider";
+import { ProgressOverview } from "./ProgressOverview";
 
 export const Layout: React.FC = ({ children }) => {
   return (
