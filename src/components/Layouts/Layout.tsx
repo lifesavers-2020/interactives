@@ -16,10 +16,10 @@ export const Layout: React.FC = ({ children }) => {
       <div className="relative flex-auto flex flex-col justify-around items-center h-full w-full">
         <PageTransition>{children}</PageTransition>
       </div>
-      <div className="flex-none flex flex-row justify-center">
+      <div className="flex-none flex flex-row justify-center py-1">
         <Divider />
       </div>
-      <div className="flex-none p-4">
+      <div className="flex-none p-4 bg-white">
         <Banner />
       </div>
     </div>

@@ -15,7 +15,7 @@ export const Banner: React.FC = () => {
           className="w-32 register-button"
           whileTap={{ scale: 0.9 }}
         >
-          Register Now
+          Join the Registry
         </motion.button>
       </a>
     </div>

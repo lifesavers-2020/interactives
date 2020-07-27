@@ -57,7 +57,7 @@ export const CellDifferentiation: React.FC = () => {
       {RegularCell}
       {makeInfoCard(
         () => regularClicked,
-        "Regular cells have specific jobs that are assigned to them. They cannot develop into any cell present in the bloodstream."
+        "Regular cells have specific jobs that are assigned to them."
       )}
       {StemCell}
       {makeInfoCard(
