@@ -20,9 +20,17 @@ body,
 }
 
 #root {
-  background: #54c3bb
+  /* background: #54c3bb
     radial-gradient(circle, #ffffffff 0%, #ffffffdd 72%, #ffffff00 100%) 0% 0%
-    no-repeat padding-box;
+    no-repeat padding-box; */
+  background: rgb(84, 195, 187);
+  background: linear-gradient(
+    rgba(84, 195, 187, 0.25) 0%,
+    rgba(237, 28, 36, 0.07) 42%,
+    rgba(84, 195, 187, 0.1) 80%,
+    rgba(255, 255, 255, 1) 88%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 h2 {
