@@ -17,11 +17,11 @@ export const ClickIndicator: React.FC<Props> = ({
       {children}
       <img
         className="absolute"
-        width={45}
+        width={50}
         src="/assets/imgs/shared/click.gif"
         alt=""
         style={{
-          width: 45,
+          width: 50,
           right,
           bottom,
           pointerEvents: "none",
