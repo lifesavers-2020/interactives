@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 
 interface Props {
   containerWidth?: number | string;
@@ -14,6 +14,16 @@ interface Props {
         left?: number | undefined;
       }
     | React.RefObject<Element>;
+  dragElastic?: number;
+  dragMomentum?: boolean;
+  onDrag?: (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => void;
+  onDragEnd?: (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => void;
 }
 
 export const Scrollable: React.FC<Props> = ({
@@ -21,13 +31,24 @@ export const Scrollable: React.FC<Props> = ({
   imageWidth,
   drag,
   dragConstraints,
+  dragElastic = 0.5,
+  dragMomentum = true,
+  onDrag,
+  onDragEnd,
   children,
 }) => {
   return (
     <div className="relative">
       <div style={{ width: containerWidth, overflowX: "hidden" }}>
         <div style={{ width: imageWidth }}>
-          <motion.div drag={drag} dragConstraints={dragConstraints}>
+          <motion.div
+            drag={drag}
+            dragConstraints={dragConstraints}
+            onDrag={onDrag}
+            onDragEnd={onDragEnd}
+            dragElastic={dragElastic}
+            dragMomentum={dragMomentum}
+          >
             {children}
           </motion.div>
         </div>
