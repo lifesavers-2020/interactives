@@ -5,7 +5,7 @@ import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { PageStore } from "../stores/PageStore";
 
 export const YoungDonorWalking: React.FC = () => {
-  const bgWidth = 1500;
+  const bgWidth = 1200;
   const [dragLeft, setDragLeft] = useState(window.innerWidth - bgWidth);
   const pageStore = useContext(PageStore.context());
 
@@ -18,7 +18,7 @@ export const YoungDonorWalking: React.FC = () => {
 
   const WalkingPerson = (
     <FadeAnimation
-      className="absolute"
+      className="absolute flex justify-center"
       style={{
         zIndex: 1,
         bottom: 36,
@@ -28,6 +28,7 @@ export const YoungDonorWalking: React.FC = () => {
       }}
     >
       <img
+        width={120}
         src="/assets/imgs/young-donor-walking/walking.gif"
         alt="Young donor"
         draggable={false}
@@ -43,7 +44,7 @@ export const YoungDonorWalking: React.FC = () => {
         dragConstraints={{ right: 0, left: dragLeft }}
       >
         <img
-          src="/assets/imgs/young-donor-walking/tree+road.png"
+          src="/assets/imgs/young-donor-walking/trees.png"
           alt="background"
           draggable={false}
         />
