@@ -17,6 +17,7 @@ export const YoungDonorWalking: React.FC = () => {
   const pageStore = useContext(PageStore.context());
   const [step, setStep] = useState(0);
   const [lock, setLock] = useState(false);
+  const [swiped, setSwiped] = useState(false);
   const NUM_STEP = 3;
 
   useEffect(() => {
@@ -68,7 +69,7 @@ export const YoungDonorWalking: React.FC = () => {
 
   const Background = (
     <div className="absolute" style={{ bottom: 16 }}>
-      <SwipeIndicator horizontal top="0" left="10%">
+      <SwipeIndicator horizontal top="0" left="10%" visible={() => !swiped}>
         <Scrollable
           imageWidth={bgWidth}
           drag="x"
@@ -82,9 +83,11 @@ export const YoungDonorWalking: React.FC = () => {
             if (swipe < -swipeConfidenceThreshold && step < NUM_STEP) {
               setStep(step + 1);
               setLock(true);
+              setSwiped(true);
             } else if (swipe > swipeConfidenceThreshold && step > 0) {
               setStep(step - 1);
               setLock(true);
+              setSwiped(true);
             }
           }}
           onDragEnd={() => setLock(false)}
