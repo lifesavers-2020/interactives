@@ -4,6 +4,7 @@ import { useOnResize } from "../components/Shared/UseOnResize";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { PageStore } from "../stores/PageStore";
 import { PopAnimation } from "../components/Animations/PopAnimation";
+import { SwipeIndicator } from "../components/Shared/SwipeIndicator";
 
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
@@ -67,33 +68,35 @@ export const YoungDonorWalking: React.FC = () => {
 
   const Background = (
     <div className="absolute" style={{ bottom: 16 }}>
-      <Scrollable
-        imageWidth={bgWidth}
-        drag="x"
-        dragConstraints={{
-          right: step * (dragLeft / NUM_STEP),
-          left: step * (dragLeft / NUM_STEP),
-        }}
-        onDrag={(_, { offset, velocity }) => {
-          if (lock) return;
-          const swipe = swipePower(offset.x, velocity.x);
-          if (swipe < -swipeConfidenceThreshold && step < NUM_STEP) {
-            setStep(step + 1);
-            setLock(true);
-          } else if (swipe > swipeConfidenceThreshold && step > 0) {
-            setStep(step - 1);
-            setLock(true);
-          }
-        }}
-        onDragEnd={() => setLock(false)}
-        dragElastic={1}
-      >
-        <img
-          src="/assets/imgs/young-donor-walking/trees.png"
-          alt="background"
-          draggable={false}
-        />
-      </Scrollable>
+      <SwipeIndicator horizontal top="0" left="10%">
+        <Scrollable
+          imageWidth={bgWidth}
+          drag="x"
+          dragConstraints={{
+            right: step * (dragLeft / NUM_STEP),
+            left: step * (dragLeft / NUM_STEP),
+          }}
+          onDrag={(_, { offset, velocity }) => {
+            if (lock) return;
+            const swipe = swipePower(offset.x, velocity.x);
+            if (swipe < -swipeConfidenceThreshold && step < NUM_STEP) {
+              setStep(step + 1);
+              setLock(true);
+            } else if (swipe > swipeConfidenceThreshold && step > 0) {
+              setStep(step - 1);
+              setLock(true);
+            }
+          }}
+          onDragEnd={() => setLock(false)}
+          dragElastic={1}
+        >
+          <img
+            src="/assets/imgs/young-donor-walking/trees.png"
+            alt="background"
+            draggable={false}
+          />
+        </Scrollable>
+      </SwipeIndicator>
     </div>
   );
 
