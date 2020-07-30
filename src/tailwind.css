@@ -77,6 +77,8 @@ button.full {
     );
   background-origin: border-box;
   background-clip: padding-box, border-box;
+
+  max-width: 300px;
 }
 
 .register-button {
