@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ProgressBar } from "./ProgressBar";
 import { PageChangeButton } from "./PageChangeButton";
 import { PageStore } from "../../stores/PageStore";
@@ -7,7 +7,11 @@ import { useLocation } from "wouter";
 
 export const ProgressOverview: React.FC = () => {
   const pageStore = useContext(PageStore.context());
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+
+  useEffect(() => {
+    pageStore.syncPage(location);
+  }, [location, pageStore]);
 
   return useObserver(() => (
     <div className="flex flex-row items-center">

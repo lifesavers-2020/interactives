@@ -83,4 +83,10 @@ export class PageStore {
     }
     return pages[this.page].path;
   }
+
+  @action public syncPage(location: string) {
+    const i = pages.findIndex(r => r.path === location);
+    if (i === this.page) return;
+    this.page = i;
+  }
 }
