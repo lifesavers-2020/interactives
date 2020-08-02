@@ -1,6 +1,7 @@
 import React from "react";
 
 interface Props {
+  className?: string;
   horizontal?: boolean;
   left?: string | number;
   top?: string | number;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export const SwipeIndicator: React.FC<Props> = ({
+  className,
   horizontal,
   left = "15%",
   top = "15%",
@@ -15,7 +17,7 @@ export const SwipeIndicator: React.FC<Props> = ({
   children,
 }) => {
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       {children}
       <img
         className="absolute"
@@ -29,6 +31,7 @@ export const SwipeIndicator: React.FC<Props> = ({
           pointerEvents: "none",
           visibility: visible() ? "visible" : "hidden",
           transform: horizontal ? "rotate(90deg)" : undefined,
+          zIndex: 10,
         }}
         draggable={false}
       />
