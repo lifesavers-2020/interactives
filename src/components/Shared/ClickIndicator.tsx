@@ -3,12 +3,14 @@ import React from "react";
 interface Props {
   right?: string | number;
   bottom?: string | number;
+  width?: number;
   visible?: () => boolean;
 }
 
 export const ClickIndicator: React.FC<Props> = ({
   right = "15%",
   bottom = "15%",
+  width = 50,
   visible = () => true,
   children,
 }) => {
@@ -17,11 +19,11 @@ export const ClickIndicator: React.FC<Props> = ({
       {children}
       <img
         className="absolute"
-        width={50}
+        width={width}
         src="/assets/imgs/shared/click.gif"
         alt=""
         style={{
-          width: 50,
+          width,
           right,
           bottom,
           pointerEvents: "none",
