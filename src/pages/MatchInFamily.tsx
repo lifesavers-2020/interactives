@@ -31,7 +31,10 @@ export const MatchInFamily: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation className="card" visible={() => clicked.size >= 3}>
+    <PopAnimation
+      className="card"
+      visible={() => clicked.size >= 3 || pageStore.isViewedPage()}
+    >
       Only 25% of people will find the donor in their family.
     </PopAnimation>
   );

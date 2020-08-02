@@ -64,6 +64,10 @@ export class PageStore {
     return this.page > 0;
   }
 
+  @observable public isViewedPage() {
+    return this.page < this.pageLimit;
+  }
+
   @action public pushPageLimit() {
     this.pageLimit = Math.max(this.pageLimit, this.page + 1);
   }

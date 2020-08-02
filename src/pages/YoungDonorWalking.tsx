@@ -69,7 +69,12 @@ export const YoungDonorWalking: React.FC = () => {
 
   const Background = (
     <div className="absolute" style={{ bottom: 16 }}>
-      <SwipeIndicator horizontal top="0" left="10%" visible={() => !swiped}>
+      <SwipeIndicator
+        horizontal
+        top="0"
+        left="10%"
+        visible={() => !swiped && !pageStore.isViewedPage()}
+      >
         <Scrollable
           imageWidth={bgWidth}
           drag="x"

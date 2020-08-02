@@ -14,7 +14,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   }, [showMaleBg, showFemaleBg, pageStore]);
 
   const Female = (
-    <ClickIndicator visible={() => !showFemaleBg}>
+    <ClickIndicator visible={() => !showFemaleBg && !pageStore.isViewedPage()}>
       <ClickableImages
         width={150}
         height={442.91}
@@ -26,7 +26,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
           {
             src:
               "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
-            visibility: () => showFemaleBg,
+            visibility: () => showFemaleBg || pageStore.isViewedPage(),
             tappable: false,
             hoverable: false,
           },
@@ -38,7 +38,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   const Male = (
-    <ClickIndicator visible={() => !showMaleBg}>
+    <ClickIndicator visible={() => !showMaleBg && !pageStore.isViewedPage()}>
       <ClickableImages
         width={150}
         height={442.91}
@@ -47,7 +47,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
           { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },
           {
             src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
-            visibility: () => showMaleBg,
+            visibility: () => showMaleBg || pageStore.isViewedPage(),
             tappable: false,
             hoverable: false,
           },
@@ -59,7 +59,10 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation className="card" visible={() => showMaleBg && showFemaleBg}>
+    <PopAnimation
+      className="card"
+      visible={() => (showMaleBg && showFemaleBg) || pageStore.isViewedPage()}
+    >
       On average, more stem cells can be collected from male donors.
     </PopAnimation>
   );

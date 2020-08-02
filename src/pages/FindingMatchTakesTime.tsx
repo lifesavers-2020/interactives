@@ -33,7 +33,11 @@ export const FindingMatchTakesTime: React.FC = () => {
   };
 
   const Seasons = (
-    <SwipeIndicator className="w-full" horizontal visible={() => count < 3}>
+    <SwipeIndicator
+      className="w-full"
+      horizontal
+      visible={() => count < 3 && !pageStore.isViewedPage()}
+    >
       <div className="flex flex-row justify-center my-2 relative w-full">
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
@@ -89,7 +93,10 @@ export const FindingMatchTakesTime: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation className="card" visible={() => count >= 0}>
+    <PopAnimation
+      className="card"
+      visible={() => count >= 0 || pageStore.isViewedPage()}
+    >
       Finding a match takes time, patience and a donor's commitment to donate
       stem cells when the time comes to save a life.
     </PopAnimation>

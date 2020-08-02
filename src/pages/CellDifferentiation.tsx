@@ -16,7 +16,9 @@ export const CellDifferentiation: React.FC = () => {
 
   const RegularCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
-      <ClickIndicator visible={() => !regularClicked}>
+      <ClickIndicator
+        visible={() => !regularClicked && !pageStore.isViewedPage()}
+      >
         <ClickableImages
           width={200}
           height={158.83}
@@ -33,7 +35,9 @@ export const CellDifferentiation: React.FC = () => {
   const StemCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
       <h2>Stem Cells</h2>
-      <ClickIndicator visible={() => !stemCellClicked}>
+      <ClickIndicator
+        visible={() => !stemCellClicked && !pageStore.isViewedPage()}
+      >
         <ClickableImages
           width={160}
           height={160}
@@ -56,12 +60,12 @@ export const CellDifferentiation: React.FC = () => {
     <div className="vcontainer">
       {RegularCell}
       {makeInfoCard(
-        () => regularClicked,
+        () => regularClicked || pageStore.isViewedPage(),
         "Regular cells have specific jobs that are assigned to them."
       )}
       {StemCell}
       {makeInfoCard(
-        () => stemCellClicked,
+        () => stemCellClicked || pageStore.isViewedPage(),
         "Stem cells, specifically blood stem cells, are immature cells that can develop into any cell present in the bloodstream."
       )}
     </div>

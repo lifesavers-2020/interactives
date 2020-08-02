@@ -14,7 +14,7 @@ export const PeripheralBloodDonation: React.FC = () => {
 
   const Donor = (
     <div className="flex justify-center">
-      <ClickIndicator visible={() => count < 3}>
+      <ClickIndicator visible={() => count < 3 && !pageStore.isViewedPage()}>
         <ClickableImages
           width={300}
           height={367.19}
@@ -25,15 +25,15 @@ export const PeripheralBloodDonation: React.FC = () => {
             { src: "/assets/imgs/peripheral-blood-donation/chair2.png" },
             {
               src: "/assets/imgs/peripheral-blood-donation/b1.png",
-              visibility: () => count > 0,
+              visibility: () => count > 0 || pageStore.isViewedPage(),
             },
             {
               src: "/assets/imgs/peripheral-blood-donation/b2.png",
-              visibility: () => count > 1,
+              visibility: () => count > 1 || pageStore.isViewedPage(),
             },
             {
               src: "/assets/imgs/peripheral-blood-donation/b3.png",
-              visibility: () => count > 2,
+              visibility: () => count > 2 || pageStore.isViewedPage(),
             },
           ]}
           hoverable={true}
@@ -44,7 +44,10 @@ export const PeripheralBloodDonation: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation className="card" visible={() => count > 2}>
+    <PopAnimation
+      className="card"
+      visible={() => count > 2 || pageStore.isViewedPage()}
+    >
       80% of stem cell transplants are done through peripheral blood donation.
     </PopAnimation>
   );

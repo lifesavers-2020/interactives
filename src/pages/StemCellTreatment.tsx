@@ -14,7 +14,7 @@ export const StemCellTreatment: React.FC = () => {
   }, [count, pageStore]);
 
   const StemCell = (
-    <ClickIndicator visible={() => count < 2}>
+    <ClickIndicator visible={() => count < 2 && !pageStore.isViewedPage()}>
       <ClickableImages
         width={254}
         height={254}
@@ -41,13 +41,13 @@ export const StemCellTreatment: React.FC = () => {
   return (
     <div className="vcontainer">
       {makeInfoCard(
-        () => count > 0,
+        () => count > 0 || pageStore.isViewedPage(),
         "Various types of blood cancers such as leukemia, lymphoma or myeloma."
       )}
       {StemCell}
       {Description}
       {makeInfoCard(
-        () => count > 1,
+        () => count > 1 || pageStore.isViewedPage(),
         "Bone marrow deficiency diseases such as thalassemia or sickle cell disease."
       )}
     </div>
