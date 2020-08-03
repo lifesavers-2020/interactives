@@ -7,7 +7,7 @@ import { MatchInFamily } from "../pages/MatchInFamily";
 import { MoreCollectableStemCellsInMale } from "../pages/MoreCollectableStemCellsInMale";
 import { PeripheralBloodDonation } from "../pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "../pages/FindingMatchTakesTime";
-import { RegisterSteps } from "../pages/RegisterSteps";
+import { GoThroughForm } from "../pages/GoThroughForm";
 
 interface RouteDefinition {
   path: string;
@@ -27,7 +27,7 @@ export const pages: RouteDefinition[] = [
   },
   { path: "/peripheral-blood-donation", component: PeripheralBloodDonation },
   { path: "/find-match-takes-time", component: FindingMatchTakesTime },
-  { path: "/register-steps", component: RegisterSteps },
+  { path: "/go-through-form", component: GoThroughForm },
 ];
 
 export class PageStore {

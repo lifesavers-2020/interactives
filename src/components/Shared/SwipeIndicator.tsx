@@ -5,11 +5,13 @@ interface Props {
   horizontal?: boolean;
   left?: string | number;
   top?: string | number;
+  style?: React.CSSProperties;
   visible?: () => boolean;
 }
 
 export const SwipeIndicator: React.FC<Props> = ({
   className,
+  style,
   horizontal,
   left = "15%",
   top = "15%",
@@ -17,7 +19,7 @@ export const SwipeIndicator: React.FC<Props> = ({
   children,
 }) => {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${className}`} style={style}>
       {children}
       <img
         className="absolute"
