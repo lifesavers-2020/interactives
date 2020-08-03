@@ -22,7 +22,7 @@ export const GoThroughForm: React.FC = () => {
         top: 145,
         clipPath: "polygon(0 2%, 100% 2%, 100% 69%, 0 69%)",
       }}
-      visible={() => !scrolled}
+      visible={() => !scrolled && !pageStore.isViewedPage()}
     >
       <motion.img
         drag="y"

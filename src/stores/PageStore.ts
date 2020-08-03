@@ -8,6 +8,7 @@ import { MoreCollectableStemCellsInMale } from "../pages/MoreCollectableStemCell
 import { PeripheralBloodDonation } from "../pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "../pages/FindingMatchTakesTime";
 import { GoThroughForm } from "../pages/GoThroughForm";
+import { SwabbingKit } from "../pages/SwabbingKit";
 
 interface RouteDefinition {
   path: string;
@@ -28,6 +29,7 @@ export const pages: RouteDefinition[] = [
   { path: "/peripheral-blood-donation", component: PeripheralBloodDonation },
   { path: "/find-match-takes-time", component: FindingMatchTakesTime },
   { path: "/go-through-form", component: GoThroughForm },
+  { path: "/swabbing-kit", component: SwabbingKit },
 ];
 
 export class PageStore {
