@@ -9,6 +9,7 @@ import { PeripheralBloodDonation } from "../pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "../pages/FindingMatchTakesTime";
 import { GoThroughForm } from "../pages/GoThroughForm";
 import { SwabbingKit } from "../pages/SwabbingKit";
+import { SignForm } from "../pages/SignForm";
 
 interface RouteDefinition {
   path: string;
@@ -30,6 +31,7 @@ export const pages: RouteDefinition[] = [
   { path: "/find-match-takes-time", component: FindingMatchTakesTime },
   { path: "/go-through-form", component: GoThroughForm },
   { path: "/swabbing-kit", component: SwabbingKit },
+  { path: "/sign-form", component: SignForm },
 ];
 
 export class PageStore {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { PageStore } from "../stores/PageStore";
 import { motion } from "framer-motion";
@@ -7,6 +7,10 @@ import { SwipeIndicator } from "../components/Shared/SwipeIndicator";
 export const SwabbingKit: React.FC = () => {
   const [swabbed, setSwabbed] = useState(false);
   const pageStore = useContext(PageStore.context());
+
+  useEffect(() => {
+    if (swabbed) pageStore.pushPageLimit();
+  }, [swabbed, pageStore]);
 
   const MovableHand = (
     <SwipeIndicator
