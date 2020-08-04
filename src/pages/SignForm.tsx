@@ -26,7 +26,10 @@ export const SignForm: React.FC = () => {
 
   useLayoutEffect(() => {
     if (!canvasRef.current) return;
-    canvasRectRef.current = canvasRef.current.getBoundingClientRect();
+    setTimeout(() => {
+      if (!canvasRef.current) return;
+      canvasRectRef.current = canvasRef.current.getBoundingClientRect();
+    }, 700);
   }, [canvasRef]);
 
   const getCoord = (e: MouseEvent) => {
@@ -49,7 +52,7 @@ export const SignForm: React.FC = () => {
       canvasRectRef.current.top - document.documentElement.scrollTop;
 
     x -= offsetX;
-    y -= offsetY + 20;
+    y -= offsetY;
 
     return { x, y };
   };
