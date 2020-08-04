@@ -16,8 +16,8 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   const Female = (
     <ClickIndicator visible={() => !showFemaleBg && !pageStore.isViewedPage()}>
       <ClickableImages
-        width={150}
-        height={442.91}
+        width={120}
+        height={354}
         onClick={() => setShowFemaleBg(true)}
         imgs={[
           {
@@ -40,8 +40,8 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   const Male = (
     <ClickIndicator visible={() => !showMaleBg && !pageStore.isViewedPage()}>
       <ClickableImages
-        width={150}
-        height={442.91}
+        width={120}
+        height={354}
         onClick={() => setShowMaleBg(true)}
         imgs={[
           { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },

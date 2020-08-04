@@ -15,11 +15,11 @@ export const SwabbingKit: React.FC = () => {
   const MovableHand = (
     <SwipeIndicator
       style={{
-        position: "absolute",
+        position: "relative",
         width: 200,
         height: 88.88,
-        bottom: 15,
-        left: -20,
+        bottom: -295,
+        left: -85,
       }}
       visible={() => !swabbed && !pageStore.isViewedPage()}
     >
@@ -32,7 +32,7 @@ export const SwabbingKit: React.FC = () => {
         dragConstraints={{ top: -5, bottom: 2, left: -5, right: 5 }}
         dragElastic={0.01}
         dragMomentum={false}
-        onDrag={() => setSwabbed(true)}
+        onDragEnd={() => setSwabbed(true)}
       />
     </SwipeIndicator>
   );

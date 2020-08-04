@@ -16,8 +16,8 @@ export const StemCellTreatment: React.FC = () => {
   const StemCell = (
     <ClickIndicator visible={() => count < 2 && !pageStore.isViewedPage()}>
       <ClickableImages
-        width={254}
-        height={254}
+        width={180}
+        height={180}
         onClick={() => count < 2 && setCount(count + 1)}
         imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
         hoverable={true}

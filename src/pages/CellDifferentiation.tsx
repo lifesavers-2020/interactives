@@ -20,8 +20,8 @@ export const CellDifferentiation: React.FC = () => {
         visible={() => !regularClicked && !pageStore.isViewedPage()}
       >
         <ClickableImages
-          width={200}
-          height={158.83}
+          width={160}
+          height={127}
           onClick={() => setRegularClicked(true)}
           imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
           hoverable={true}
@@ -39,8 +39,8 @@ export const CellDifferentiation: React.FC = () => {
         visible={() => !stemCellClicked && !pageStore.isViewedPage()}
       >
         <ClickableImages
-          width={160}
-          height={160}
+          width={120}
+          height={120}
           onClick={() => setStemCellClicked(true)}
           imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
           hoverable={true}

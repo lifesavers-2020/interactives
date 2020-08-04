@@ -9,6 +9,7 @@ import { SignStore } from "../stores/SignStore";
 import { useEventListener } from "../components/Hooks/useEventListener";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { PageStore } from "../stores/PageStore";
+import { useOnResize } from "../components/Shared/UseOnResize";
 
 export const SignForm: React.FC = () => {
   const [signed, setSigned] = useState(false);
@@ -17,6 +18,10 @@ export const SignForm: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasRectRef = useRef<ClientRect | DOMRect | null>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | undefined>();
+
+  useEffect(() => {
+    if (signed) pageStore.pushPageLimit();
+  }, [signed, pageStore]);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -31,6 +36,11 @@ export const SignForm: React.FC = () => {
       canvasRectRef.current = canvasRef.current.getBoundingClientRect();
     }, 700);
   }, [canvasRef]);
+
+  useOnResize(() => {
+    if (!canvasRef.current) return;
+    canvasRectRef.current = canvasRef.current.getBoundingClientRect();
+  }, 200);
 
   const getCoord = (e: MouseEvent) => {
     let x = 0;
@@ -83,8 +93,13 @@ export const SignForm: React.FC = () => {
   useEventListener(canvasRef, "touchend", endDrawing);
 
   const SignPanel = (
-    <div className="absolute" style={{ width: 250, height: 100, bottom: 60 }}>
-      <canvas ref={canvasRef} width={250} height={100}></canvas>
+    <div className="relative" style={{ width: 270, height: 120, bottom: -240 }}>
+      <canvas
+        className="absolute"
+        ref={canvasRef}
+        width={250}
+        height={100}
+      ></canvas>
     </div>
   );
 
@@ -99,10 +114,10 @@ export const SignForm: React.FC = () => {
         src="/assets/imgs/sign-form/i8-3-mike.png"
         alt=""
       />
-      <p className="text-xl absolute" style={{ bottom: 160 }}>
+      {SignPanel}
+      <p className="text-lg absolute" style={{ top: 210 }}>
         Feel free to draw a little something!
       </p>
-      {SignPanel}
     </div>
   );
 

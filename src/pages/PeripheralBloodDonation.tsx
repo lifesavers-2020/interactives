@@ -16,8 +16,8 @@ export const PeripheralBloodDonation: React.FC = () => {
     <div className="flex justify-center">
       <ClickIndicator visible={() => count < 3 && !pageStore.isViewedPage()}>
         <ClickableImages
-          width={300}
-          height={367.19}
+          width={250}
+          height={306}
           onClick={() => count < 3 && setCount(count + 1)}
           imgs={[
             { src: "/assets/imgs/peripheral-blood-donation/chair.png" },

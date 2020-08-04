@@ -71,7 +71,7 @@ export const YoungDonorWalking: React.FC = () => {
   );
 
   const Background = (
-    <div className="absolute" style={{ bottom: 16 }}>
+    <div className="absolute" style={{ bottom: 0 }}>
       <SwipeIndicator
         horizontal
         top="0"
