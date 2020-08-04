@@ -23,6 +23,7 @@
     "typescript": "~3.7.2",
     "wouter": "^2.4.0"
   },
+  "homepage": "./",
   "scripts": {
     "build:css": "postcss src/tailwind.css -o src/main.css",
     "start": "yarn build:css && react-scripts start",
