@@ -3,13 +3,13 @@ import { observable, action } from "mobx";
 import { CellDifferentiation } from "../pages/CellDifferentiation";
 import { StemCellTreatment } from "../pages/StemCellTreatment";
 import { YoungDonorWalking } from "../pages/YoungDonorWalking";
-import { MatchInFamily } from "../pages/MatchInFamily";
 import { MoreCollectableStemCellsInMale } from "../pages/MoreCollectableStemCellsInMale";
 import { PeripheralBloodDonation } from "../pages/PeripheralBloodDonation";
 import { FindingMatchTakesTime } from "../pages/FindingMatchTakesTime";
 import { GoThroughForm } from "../pages/GoThroughForm";
 import { SwabbingKit } from "../pages/SwabbingKit";
 import { SignForm } from "../pages/SignForm";
+import { FindingMatch } from "../pages/FindingMatch";
 
 interface RouteDefinition {
   path: string;
@@ -20,9 +20,7 @@ export const pages: RouteDefinition[] = [
   { path: "/", component: CellDifferentiation },
   { path: "/stem-cell-treatment", component: StemCellTreatment },
   { path: "/young-donor", component: YoungDonorWalking },
-  { path: "/match-in-family", component: MatchInFamily },
-  // { path: "/find-match-in-family", component: FindMatchInFamily },
-  // { path: "/find-match-in-crowd", component: FindMatchInCrowd },
+  { path: "/finding-match", component: FindingMatch },
   {
     path: "/more-collectable-stem-cells-in-male",
     component: MoreCollectableStemCellsInMale,
