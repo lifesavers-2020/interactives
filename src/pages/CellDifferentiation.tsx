@@ -61,12 +61,12 @@ export const CellDifferentiation: React.FC = () => {
       {RegularCell}
       {makeInfoCard(
         () => regularClicked || pageStore.isViewedPage(),
-        "Regular cells have specific jobs that are assigned to them."
+        "Regular human cells have specific jobs that are assigned to them."
       )}
       {StemCell}
       {makeInfoCard(
         () => stemCellClicked || pageStore.isViewedPage(),
-        "Stem cells, specifically blood stem cells, are immature cells that can develop into any cell present in the bloodstream."
+        "Stem cells, specifically blood stem cells, are immature cells that can develop into any type of cell present in the bloodstream."
       )}
     </div>
   );

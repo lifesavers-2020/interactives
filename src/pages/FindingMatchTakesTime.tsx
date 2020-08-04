@@ -97,8 +97,8 @@ export const FindingMatchTakesTime: React.FC = () => {
       className="card"
       visible={() => count >= 0 || pageStore.isViewedPage()}
     >
-      Finding a match takes time, patience and a donor's commitment to donate
-      stem cells when the time comes to save a life.
+      Finding a match usually takes time. The patient's patience and the donor's
+      commitment to donate are critical in saving life.
     </PopAnimation>
   );
 

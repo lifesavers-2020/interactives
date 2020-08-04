@@ -42,7 +42,10 @@ export const YoungDonorWalking: React.FC = () => {
         "Younger donors offer better outcomes for reducing post-transplant complications",
         1
       )}
-      {makeInfoBox("You will also remain on the stem cell registry longer.", 2)}
+      {makeInfoBox(
+        "They will also remain on the stem cell registry longer.",
+        2
+      )}
       {makeInfoBox("35 Years Old", 3)}
     </>
   );

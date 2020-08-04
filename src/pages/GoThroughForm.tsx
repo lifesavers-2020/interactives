@@ -63,8 +63,9 @@ export const GoThroughForm: React.FC = () => {
       className="card"
       visible={() => scrolled || pageStore.isViewedPage()}
     >
-      (Need revise)
-      <br /> Register 1: Go through register form
+      To Join The Registry:
+      <br />
+      Step 1: Go to our page and read about the registration process.
     </PopAnimation>
   );
 

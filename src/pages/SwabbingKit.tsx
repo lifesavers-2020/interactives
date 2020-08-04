@@ -70,8 +70,8 @@ export const SwabbingKit: React.FC = () => {
       className="card"
       visible={() => swabbed || pageStore.isViewedPage()}
     >
-      (Need revise)
-      <br /> Register 2: Swabbing kit will be sent
+      Step 2: A swabbing kit will be sent to you along with instructions. Send
+      the swabbing kit back to us when you are done.
     </PopAnimation>
   );
 

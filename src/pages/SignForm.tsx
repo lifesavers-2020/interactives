@@ -100,7 +100,7 @@ export const SignForm: React.FC = () => {
         alt=""
       />
       <p className="text-xl absolute" style={{ bottom: 160 }}>
-        Sign anything here
+        Feel free to draw a little something!
       </p>
       {SignPanel}
     </div>
@@ -111,8 +111,8 @@ export const SignForm: React.FC = () => {
       className="card"
       visible={() => signed || pageStore.isViewedPage()}
     >
-      (Need revise)
-      <br /> Register 3: Sign?
+      Step 3: if you match with a patient, we will acquire your consent
+      signature before the transplantation.
     </PopAnimation>
   );
 

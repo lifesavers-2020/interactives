@@ -63,7 +63,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
       className="card"
       visible={() => (showMaleBg && showFemaleBg) || pageStore.isViewedPage()}
     >
-      On average, more stem cells can be collected from male donors.
+      On average, a male donor can provide more stem cells than a female donor.
     </PopAnimation>
   );
 
