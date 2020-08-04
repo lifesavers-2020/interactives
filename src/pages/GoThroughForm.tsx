@@ -4,6 +4,10 @@ import { SwipeIndicator } from "../components/Shared/SwipeIndicator";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { PageStore } from "../stores/PageStore";
 
+import phoneImage from "../assets/imgs/go-through-form/i8-1-phone.png";
+import mikeImage from "../assets/imgs/go-through-form/i8-1-mike.png";
+import phoneFrameImage from "../assets/imgs/go-through-form/i8-1-phone-frame.png";
+
 export const GoThroughForm: React.FC = () => {
   const pageStore = useContext(PageStore.context());
   const [scrolled, setScrolled] = useState(() => pageStore.isViewedPage());
@@ -28,7 +32,7 @@ export const GoThroughForm: React.FC = () => {
         drag="y"
         className="absolute"
         draggable={false}
-        src="/assets/imgs/go-through-form/i8-1-phone.png"
+        src={phoneImage}
         dragConstraints={{ top: -80, bottom: 0 }}
         alt=""
         onDrag={() => setScrolled(true)}
@@ -41,16 +45,11 @@ export const GoThroughForm: React.FC = () => {
       className="relative w-full flex justify-center"
       style={{ width: 340, height: 400 }}
     >
+      <img className="absolute" draggable={false} src={mikeImage} alt="" />
       <img
         className="absolute"
         draggable={false}
-        src="/assets/imgs/go-through-form/i8-1-mike.png"
-        alt=""
-      />
-      <img
-        className="absolute"
-        draggable={false}
-        src="/assets/imgs/go-through-form/i8-1-phone-frame.png"
+        src={phoneFrameImage}
         style={{ width: 270, top: 135 }}
         alt=""
       />

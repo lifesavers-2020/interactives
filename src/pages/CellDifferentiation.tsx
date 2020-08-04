@@ -5,6 +5,9 @@ import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
+import regularCellImage from "../assets/imgs/cell-differentiation/regular.png";
+import stemCellImage from "../assets/imgs/cell-differentiation/stem-cell.png";
+
 export const CellDifferentiation: React.FC = () => {
   const pageStore = useContext(PageStore.context());
   const [regularClicked, setRegularClicked] = useState(() =>
@@ -25,7 +28,7 @@ export const CellDifferentiation: React.FC = () => {
           width={160}
           height={127}
           onClick={() => setRegularClicked(true)}
-          imgs={[{ src: "/assets/imgs/cell-differentiation/regular.png" }]}
+          imgs={[{ src: regularCellImage }]}
           hoverable={true}
           tappable={true}
         />
@@ -42,7 +45,7 @@ export const CellDifferentiation: React.FC = () => {
           width={120}
           height={120}
           onClick={() => setStemCellClicked(true)}
-          imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
+          imgs={[{ src: stemCellImage }]}
           hoverable={true}
           tappable={true}
         />

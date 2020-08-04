@@ -3,6 +3,12 @@ import { PageStore } from "../stores/PageStore";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 
+import matchMapImage from "../assets/imgs/finding-match/i3-map.png";
+import sickImage from "../assets/imgs/finding-match/i3-sick.png";
+import curedImage from "../assets/imgs/finding-match/i3-cured.png";
+import match2Image from "../assets/imgs/finding-match/i3-match-2.png";
+import matchImage from "../assets/imgs/finding-match/i3-match.png";
+
 export const FindingMatch: React.FC = () => {
   const pageStore = useContext(PageStore.context());
   const [found, setFound] = useState(() => pageStore.isViewedPage());
@@ -15,7 +21,7 @@ export const FindingMatch: React.FC = () => {
     <div className="relative">
       <img
         style={{ width: 300, height: 300 }}
-        src="/assets/imgs/finding-match/i3-map.png"
+        src={matchMapImage}
         alt=""
         draggable={false}
       />
@@ -62,22 +68,12 @@ export const FindingMatch: React.FC = () => {
 
   const Hint = (
     <div
-      className="border w-full flex flex-col justify-center p-2"
-      style={{ height: 300, borderRadius: 32 }}
+      className="flex flex-col justify-center p-2 card"
+      style={{ height: 300, borderRadius: 32, maxWidth: 400 }}
     >
       <div className="flex flex-row justify-around">
-        {makeImageBox(
-          "/assets/imgs/finding-match/i3-sick.png",
-          "/assets/imgs/finding-match/i3-cured.png",
-          "Patient",
-          120
-        )}
-        {makeImageBox(
-          "/assets/imgs/finding-match/i3-match-2.png",
-          "/assets/imgs/finding-match/i3-match.png",
-          "Match Donor",
-          120
-        )}
+        {makeImageBox(sickImage, curedImage, "Patient", 120)}
+        {makeImageBox(match2Image, matchImage, "Match Donor", 120)}
       </div>
       <h2 className="text-xl" style={{ height: 90 }}>
         {found

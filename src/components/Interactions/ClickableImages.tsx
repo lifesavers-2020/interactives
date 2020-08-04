@@ -37,7 +37,7 @@ export const ClickableImages: React.FC<Props> = ({
 }) => {
   return (
     <motion.div
-      className={"relative w-full " + className}
+      className={"relative w-full" + className ? ` ${className}` : ""}
       onClick={onClick}
       style={{ width, height, ...style }}
       whileHover={hoverable ? WHILE_HOVER : undefined}

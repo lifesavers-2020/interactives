@@ -83,6 +83,7 @@ button.full {
 
 .register-button {
   @apply py-1;
+  @apply px-2;
   @apply rounded-full;
   border: double 0.3rem transparent;
   background-image: linear-gradient(white, white),

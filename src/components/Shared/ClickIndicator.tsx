@@ -1,5 +1,7 @@
 import React from "react";
 
+import clickImage from "../../assets/imgs/shared/click.gif";
+
 interface Props {
   right?: string | number;
   bottom?: string | number;
@@ -20,7 +22,7 @@ export const ClickIndicator: React.FC<Props> = ({
       <img
         className="absolute"
         width={width}
-        src="/assets/imgs/shared/click.gif"
+        src={clickImage}
         alt=""
         style={{
           width,

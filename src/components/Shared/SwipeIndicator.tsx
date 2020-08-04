@@ -1,5 +1,7 @@
 import React from "react";
 
+import swipeImage from "../../assets/imgs/shared/swipe.gif";
+
 interface Props {
   className?: string;
   horizontal?: boolean;
@@ -24,7 +26,7 @@ export const SwipeIndicator: React.FC<Props> = ({
       <img
         className="absolute"
         width={50}
-        src="/assets/imgs/shared/swipe.gif"
+        src={swipeImage}
         alt=""
         style={{
           width: 50,

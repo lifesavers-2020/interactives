@@ -1,5 +1,7 @@
 import React from "react";
 
+import arrowRightImage from "../../assets/imgs/shared/arrow-right.png";
+
 interface Props {
   disabled?: boolean;
   backward?: boolean;
@@ -14,7 +16,7 @@ export const PageChangeButton: React.FC<Props> = ({
   return (
     <img
       onClick={onClick}
-      src={`/assets/imgs/shared/arrow-right.png`}
+      src={arrowRightImage}
       alt=""
       width={24}
       style={{

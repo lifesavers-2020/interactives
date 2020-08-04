@@ -4,12 +4,13 @@ import { PageStore } from "../stores/PageStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { SwipeIndicator } from "../components/Shared/SwipeIndicator";
 
-const seasons = [
-  "/assets/imgs/finding-match-takes-time/spring.png",
-  "/assets/imgs/finding-match-takes-time/summer.png",
-  "/assets/imgs/finding-match-takes-time/fall.png",
-  "/assets/imgs/finding-match-takes-time/winter.png",
-];
+import springImage from "../assets/imgs/finding-match-takes-time/spring.png";
+import summerImage from "../assets/imgs/finding-match-takes-time/summer.png";
+import fallImage from "../assets/imgs/finding-match-takes-time/fall.png";
+import winterImage from "../assets/imgs/finding-match-takes-time/winter.png";
+import donorImage from "../assets/imgs/finding-match-takes-time/donor.png";
+
+const seasons = [springImage, summerImage, fallImage, winterImage];
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
@@ -75,7 +76,7 @@ export const FindingMatchTakesTime: React.FC = () => {
           />
         </AnimatePresence>
         <img
-          src="/assets/imgs/finding-match-takes-time/donor.png"
+          src={donorImage}
           style={{
             paddingTop: 32,
             height: 353,

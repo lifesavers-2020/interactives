@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { debounce } from "./Utils";
+import { debounce } from "../Shared/Utils";
 
 export const useOnResize = (fn: () => void, ms: number) =>
   useEffect(() => {

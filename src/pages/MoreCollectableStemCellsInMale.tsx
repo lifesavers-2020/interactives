@@ -4,6 +4,11 @@ import { PopAnimation } from "../components/Animations/PopAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
+import femaleImage from "../assets/imgs/more-collectable-stem-cells-in-male/female.png";
+import femaleBgImage from "../assets/imgs/more-collectable-stem-cells-in-male/female-bg.png";
+import maleImage from "../assets/imgs/more-collectable-stem-cells-in-male/male.png";
+import maleBgImage from "../assets/imgs/more-collectable-stem-cells-in-male/male-bg.png";
+
 export const MoreCollectableStemCellsInMale: React.FC = () => {
   const pageStore = useContext(PageStore.context());
   const [showMaleBg, setShowMaleBg] = useState(() => pageStore.isViewedPage());
@@ -22,12 +27,9 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
         height={354}
         onClick={() => setShowFemaleBg(true)}
         imgs={[
+          { src: femaleImage },
           {
-            src: "/assets/imgs/more-collectable-stem-cells-in-male/female.png",
-          },
-          {
-            src:
-              "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
+            src: femaleBgImage,
             visibility: () => showFemaleBg,
             tappable: false,
             hoverable: false,
@@ -46,9 +48,9 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
         height={354}
         onClick={() => setShowMaleBg(true)}
         imgs={[
-          { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },
+          { src: maleImage },
           {
-            src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
+            src: maleBgImage,
             visibility: () => showMaleBg,
             tappable: false,
             hoverable: false,

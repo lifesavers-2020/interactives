@@ -1,10 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Scrollable } from "../components/Interactions/Scrollable";
-import { useOnResize } from "../components/Shared/UseOnResize";
+import { useOnResize } from "../components/Hooks/useOnResize";
 import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { PageStore } from "../stores/PageStore";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { SwipeIndicator } from "../components/Shared/SwipeIndicator";
+
+import walkingImage from "../assets/imgs/young-donor-walking/walking.gif";
+import treesImage from "../assets/imgs/young-donor-walking/trees.png";
 
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
@@ -61,12 +64,7 @@ export const YoungDonorWalking: React.FC = () => {
         pointerEvents: "none",
       }}
     >
-      <img
-        width={120}
-        src="/assets/imgs/young-donor-walking/walking.gif"
-        alt="Young donor"
-        draggable={false}
-      />
+      <img width={120} src={walkingImage} alt="Young donor" draggable={false} />
     </FadeAnimation>
   );
 
@@ -96,11 +94,7 @@ export const YoungDonorWalking: React.FC = () => {
           onDragEnd={() => setLock(false)}
           dragElastic={1}
         >
-          <img
-            src="/assets/imgs/young-donor-walking/trees.png"
-            alt="background"
-            draggable={false}
-          />
+          <img src={treesImage} alt="background" draggable={false} />
         </Scrollable>
       </SwipeIndicator>
     </div>

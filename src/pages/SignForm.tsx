@@ -9,7 +9,9 @@ import { SignStore } from "../stores/SignStore";
 import { useEventListener } from "../components/Hooks/useEventListener";
 import { PopAnimation } from "../components/Animations/PopAnimation";
 import { PageStore } from "../stores/PageStore";
-import { useOnResize } from "../components/Shared/UseOnResize";
+import { useOnResize } from "../components/Hooks/useOnResize";
+
+import mikeImage from "../assets/imgs/sign-form/i8-3-mike.png";
 
 export const SignForm: React.FC = () => {
   const signStore = useContext(SignStore.context());
@@ -109,12 +111,7 @@ export const SignForm: React.FC = () => {
       className="relative w-full flex justify-center"
       style={{ width: 340, height: 400 }}
     >
-      <img
-        className="absolute"
-        draggable={false}
-        src="/assets/imgs/sign-form/i8-3-mike.png"
-        alt=""
-      />
+      <img className="absolute" draggable={false} src={mikeImage} alt="" />
       {SignPanel}
       <p className="text-lg absolute" style={{ top: 210 }}>
         Feel free to draw a little something!

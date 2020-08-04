@@ -5,6 +5,8 @@ import { FadeAnimation } from "../components/Animations/FadeAnimation";
 import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
+import stemCellImage from "../assets/imgs/cell-differentiation/stem-cell.png";
+
 export const StemCellTreatment: React.FC = () => {
   const pageStore = useContext(PageStore.context());
   const [count, setCount] = useState(() => (pageStore.isViewedPage() ? 2 : 0));
@@ -19,7 +21,7 @@ export const StemCellTreatment: React.FC = () => {
         width={180}
         height={180}
         onClick={() => count < 2 && setCount(count + 1)}
-        imgs={[{ src: "/assets/imgs/cell-differentiation/stem-cell.png" }]}
+        imgs={[{ src: stemCellImage }]}
         hoverable={true}
         tappable={true}
       />
