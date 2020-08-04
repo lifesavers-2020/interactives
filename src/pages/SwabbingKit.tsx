@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { SwipeIndicator } from "../components/Shared/SwipeIndicator";
 
 export const SwabbingKit: React.FC = () => {
-  const [swabbed, setSwabbed] = useState(false);
   const pageStore = useContext(PageStore.context());
+  const [swabbed, setSwabbed] = useState(() => pageStore.isViewedPage());
 
   useEffect(() => {
     if (swabbed) pageStore.pushPageLimit();
@@ -21,7 +21,7 @@ export const SwabbingKit: React.FC = () => {
         bottom: -295,
         left: -85,
       }}
-      visible={() => !swabbed && !pageStore.isViewedPage()}
+      visible={() => !swabbed}
     >
       <motion.img
         className="absolute"
@@ -66,10 +66,7 @@ export const SwabbingKit: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation
-      className="card"
-      visible={() => swabbed || pageStore.isViewedPage()}
-    >
+    <PopAnimation className="card" visible={() => swabbed}>
       Step 2: A swabbing kit will be sent to you along with instructions. Send
       the swabbing kit back to us when you are done.
     </PopAnimation>

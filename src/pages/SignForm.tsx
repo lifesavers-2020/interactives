@@ -12,9 +12,10 @@ import { PageStore } from "../stores/PageStore";
 import { useOnResize } from "../components/Shared/UseOnResize";
 
 export const SignForm: React.FC = () => {
-  const [signed, setSigned] = useState(false);
   const signStore = useContext(SignStore.context());
   const pageStore = useContext(PageStore.context());
+  const [signed, setSigned] = useState(() => pageStore.isViewedPage());
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasRectRef = useRef<ClientRect | DOMRect | null>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | undefined>();
@@ -122,10 +123,7 @@ export const SignForm: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation
-      className="card"
-      visible={() => signed || pageStore.isViewedPage()}
-    >
+    <PopAnimation className="card" visible={() => signed}>
       Step 3: if you match with a patient, we will acquire your consent
       signature before the transplantation.
     </PopAnimation>

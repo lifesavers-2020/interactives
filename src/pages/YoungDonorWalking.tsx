@@ -16,8 +16,8 @@ export const YoungDonorWalking: React.FC = () => {
   const [dragLeft, setDragLeft] = useState(window.innerWidth - bgWidth);
   const pageStore = useContext(PageStore.context());
   const [step, setStep] = useState(0);
-  const [lock, setLock] = useState(false);
-  const [swiped, setSwiped] = useState(false);
+  const [lock, setLock] = useState(() => pageStore.isViewedPage());
+  const [swiped, setSwiped] = useState(() => pageStore.isViewedPage());
   const NUM_STEP = 3;
 
   useEffect(() => {
@@ -72,12 +72,7 @@ export const YoungDonorWalking: React.FC = () => {
 
   const Background = (
     <div className="absolute" style={{ bottom: 0 }}>
-      <SwipeIndicator
-        horizontal
-        top="0"
-        left="10%"
-        visible={() => !swiped && !pageStore.isViewedPage()}
-      >
+      <SwipeIndicator horizontal top="0" left="10%" visible={() => !swiped}>
         <Scrollable
           imageWidth={bgWidth}
           drag="x"

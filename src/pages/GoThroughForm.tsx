@@ -5,8 +5,8 @@ import { PopAnimation } from "../components/Animations/PopAnimation";
 import { PageStore } from "../stores/PageStore";
 
 export const GoThroughForm: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
   const pageStore = useContext(PageStore.context());
+  const [scrolled, setScrolled] = useState(() => pageStore.isViewedPage());
 
   useEffect(() => {
     if (scrolled) pageStore.pushPageLimit();
@@ -22,7 +22,7 @@ export const GoThroughForm: React.FC = () => {
         top: 145,
         clipPath: "polygon(0 2%, 100% 2%, 100% 69%, 0 69%)",
       }}
-      visible={() => !scrolled && !pageStore.isViewedPage()}
+      visible={() => !scrolled}
     >
       <motion.img
         drag="y"
@@ -59,10 +59,7 @@ export const GoThroughForm: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation
-      className="card"
-      visible={() => scrolled || pageStore.isViewedPage()}
-    >
+    <PopAnimation className="card" visible={() => scrolled}>
       To Join The Registry:
       <br />
       Step 1: Go to our page and read about the registration process.

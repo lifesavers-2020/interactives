@@ -6,15 +6,15 @@ import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
 export const StemCellTreatment: React.FC = () => {
-  const [count, setCount] = useState(0);
   const pageStore = useContext(PageStore.context());
+  const [count, setCount] = useState(() => (pageStore.isViewedPage() ? 2 : 0));
 
   useEffect(() => {
     if (count >= 2) pageStore.pushPageLimit();
   }, [count, pageStore]);
 
   const StemCell = (
-    <ClickIndicator visible={() => count < 2 && !pageStore.isViewedPage()}>
+    <ClickIndicator visible={() => count < 2}>
       <ClickableImages
         width={180}
         height={180}
@@ -41,13 +41,13 @@ export const StemCellTreatment: React.FC = () => {
   return (
     <div className="vcontainer">
       {makeInfoCard(
-        () => count > 0 || pageStore.isViewedPage(),
+        () => count > 0,
         "Various types of blood cancers such as leukemia, lymphoma and myeloma."
       )}
       {StemCell}
       {Description}
       {makeInfoCard(
-        () => count > 1 || pageStore.isViewedPage(),
+        () => count > 1,
         "Bone marrow deficiency diseases such as thalassemia and sickle cell disease."
       )}
     </div>

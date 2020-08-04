@@ -6,9 +6,13 @@ import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
 export const CellDifferentiation: React.FC = () => {
-  const [regularClicked, setRegularClicked] = useState(false);
-  const [stemCellClicked, setStemCellClicked] = useState(false);
   const pageStore = useContext(PageStore.context());
+  const [regularClicked, setRegularClicked] = useState(() =>
+    pageStore.isViewedPage()
+  );
+  const [stemCellClicked, setStemCellClicked] = useState(() =>
+    pageStore.isViewedPage()
+  );
 
   useEffect(() => {
     if (regularClicked && stemCellClicked) pageStore.pushPageLimit();
@@ -16,9 +20,7 @@ export const CellDifferentiation: React.FC = () => {
 
   const RegularCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
-      <ClickIndicator
-        visible={() => !regularClicked && !pageStore.isViewedPage()}
-      >
+      <ClickIndicator visible={() => !regularClicked}>
         <ClickableImages
           width={160}
           height={127}
@@ -35,9 +37,7 @@ export const CellDifferentiation: React.FC = () => {
   const StemCell = (
     <FadeAnimation className="flex flex-row justify-around items-center w-full">
       <h2>Stem Cells</h2>
-      <ClickIndicator
-        visible={() => !stemCellClicked && !pageStore.isViewedPage()}
-      >
+      <ClickIndicator visible={() => !stemCellClicked}>
         <ClickableImages
           width={120}
           height={120}
@@ -60,12 +60,12 @@ export const CellDifferentiation: React.FC = () => {
     <div className="vcontainer">
       {RegularCell}
       {makeInfoCard(
-        () => regularClicked || pageStore.isViewedPage(),
+        () => regularClicked,
         "Regular human cells have specific jobs that are assigned to them."
       )}
       {StemCell}
       {makeInfoCard(
-        () => stemCellClicked || pageStore.isViewedPage(),
+        () => stemCellClicked,
         "Stem cells, specifically blood stem cells, are immature cells that can develop into any type of cell present in the bloodstream."
       )}
     </div>

@@ -5,8 +5,8 @@ import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
 export const PeripheralBloodDonation: React.FC = () => {
-  const [count, setCount] = useState(0);
   const pageStore = useContext(PageStore.context());
+  const [count, setCount] = useState(() => (pageStore.isViewedPage() ? 3 : 0));
 
   useEffect(() => {
     if (count >= 3) pageStore.pushPageLimit();
@@ -14,7 +14,7 @@ export const PeripheralBloodDonation: React.FC = () => {
 
   const Donor = (
     <div className="flex justify-center">
-      <ClickIndicator visible={() => count < 3 && !pageStore.isViewedPage()}>
+      <ClickIndicator visible={() => count < 3}>
         <ClickableImages
           width={250}
           height={306}
@@ -25,15 +25,15 @@ export const PeripheralBloodDonation: React.FC = () => {
             { src: "/assets/imgs/peripheral-blood-donation/chair2.png" },
             {
               src: "/assets/imgs/peripheral-blood-donation/b1.png",
-              visibility: () => count > 0 || pageStore.isViewedPage(),
+              visibility: () => count > 0,
             },
             {
               src: "/assets/imgs/peripheral-blood-donation/b2.png",
-              visibility: () => count > 1 || pageStore.isViewedPage(),
+              visibility: () => count > 1,
             },
             {
               src: "/assets/imgs/peripheral-blood-donation/b3.png",
-              visibility: () => count > 2 || pageStore.isViewedPage(),
+              visibility: () => count > 2,
             },
           ]}
           hoverable={true}
@@ -44,10 +44,7 @@ export const PeripheralBloodDonation: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation
-      className="card"
-      visible={() => count > 2 || pageStore.isViewedPage()}
-    >
+    <PopAnimation className="card" visible={() => count > 2}>
       80% of stem cell transplants are done through peripheral blood donation.
     </PopAnimation>
   );

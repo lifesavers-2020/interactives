@@ -5,16 +5,18 @@ import { ClickIndicator } from "../components/Shared/ClickIndicator";
 import { PageStore } from "../stores/PageStore";
 
 export const MoreCollectableStemCellsInMale: React.FC = () => {
-  const [showMaleBg, setShowMaleBg] = useState(false);
-  const [showFemaleBg, setShowFemaleBg] = useState(false);
   const pageStore = useContext(PageStore.context());
+  const [showMaleBg, setShowMaleBg] = useState(() => pageStore.isViewedPage());
+  const [showFemaleBg, setShowFemaleBg] = useState(() =>
+    pageStore.isViewedPage()
+  );
 
   useEffect(() => {
     if (showMaleBg && showFemaleBg) pageStore.pushPageLimit();
   }, [showMaleBg, showFemaleBg, pageStore]);
 
   const Female = (
-    <ClickIndicator visible={() => !showFemaleBg && !pageStore.isViewedPage()}>
+    <ClickIndicator visible={() => !showFemaleBg}>
       <ClickableImages
         width={120}
         height={354}
@@ -26,7 +28,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
           {
             src:
               "/assets/imgs/more-collectable-stem-cells-in-male/female-bg.png",
-            visibility: () => showFemaleBg || pageStore.isViewedPage(),
+            visibility: () => showFemaleBg,
             tappable: false,
             hoverable: false,
           },
@@ -38,7 +40,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   const Male = (
-    <ClickIndicator visible={() => !showMaleBg && !pageStore.isViewedPage()}>
+    <ClickIndicator visible={() => !showMaleBg}>
       <ClickableImages
         width={120}
         height={354}
@@ -47,7 +49,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
           { src: "/assets/imgs/more-collectable-stem-cells-in-male/male.png" },
           {
             src: "/assets/imgs/more-collectable-stem-cells-in-male/male-bg.png",
-            visibility: () => showMaleBg || pageStore.isViewedPage(),
+            visibility: () => showMaleBg,
             tappable: false,
             hoverable: false,
           },
@@ -59,10 +61,7 @@ export const MoreCollectableStemCellsInMale: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation
-      className="card"
-      visible={() => (showMaleBg && showFemaleBg) || pageStore.isViewedPage()}
-    >
+    <PopAnimation className="card" visible={() => showMaleBg && showFemaleBg}>
       On average, a male donor can provide more stem cells than a female donor.
     </PopAnimation>
   );

@@ -16,8 +16,8 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export const FindingMatchTakesTime: React.FC = () => {
-  const [count, setCount] = useState(-1);
   const pageStore = useContext(PageStore.context());
+  const [count, setCount] = useState(() => (pageStore.isViewedPage() ? 4 : -1));
   const [[season, direction], setSeason] = useState([0, 0]);
 
   useEffect(() => {
@@ -33,11 +33,7 @@ export const FindingMatchTakesTime: React.FC = () => {
   };
 
   const Seasons = (
-    <SwipeIndicator
-      className="w-full"
-      horizontal
-      visible={() => count < 3 && !pageStore.isViewedPage()}
-    >
+    <SwipeIndicator className="w-full" horizontal visible={() => count < 3}>
       <div className="flex flex-row justify-center my-2 relative w-full">
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
@@ -93,10 +89,7 @@ export const FindingMatchTakesTime: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation
-      className="card"
-      visible={() => count >= 0 || pageStore.isViewedPage()}
-    >
+    <PopAnimation className="card" visible={() => count >= 0}>
       Finding a match usually takes time. The patient's patience and the donor's
       commitment to donate are critical in saving life.
     </PopAnimation>
