@@ -96,6 +96,9 @@ export const SignForm: React.FC = () => {
         src="/assets/imgs/sign-form/i8-3-mike.png"
         alt=""
       />
+      <p className="text-xl absolute" style={{ bottom: 160 }}>
+        Sign anything here
+      </p>
       {SignPanel}
     </div>
   );
