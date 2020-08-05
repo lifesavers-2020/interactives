@@ -15,6 +15,11 @@ const variants: Variants = {
 };
 
 const srcs = [intro1Image, intro2Image, intro3Image];
+const texts = [
+  `Last year, Cole was diagnosed with "Leukemia".`,
+  "Luckily, he he received a stem cell transplant from a hero and recovered.",
+  "But he does not know a lot about the donation process, so he checks out CBS website.",
+];
 
 export const Intro: React.FC = () => {
   const [page, setPage] = useState(0);
@@ -39,7 +44,7 @@ export const Intro: React.FC = () => {
       }}
     >
       <img src={srcs[page]} alt="" draggable={false} />
-      {/* <PopAnimation>Intro text placeholder...</PopAnimation> */}
+      <PopAnimation className="card">{texts[page]}</PopAnimation>
     </motion.div>
   );
 

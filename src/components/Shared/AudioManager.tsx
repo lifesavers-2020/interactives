@@ -2,6 +2,10 @@ import React from "react";
 
 const bgm = require("../../assets/audio/bgm.ogg");
 
+const audio = new Audio(bgm);
+
 export const AudioManager: React.FC = () => {
-  return <audio autoPlay src={bgm} />;
+  audio.loop = true;
+  audio.play();
+  return <></>;
 };
