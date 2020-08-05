@@ -39,9 +39,7 @@ export const Intro: React.FC = () => {
       }}
     >
       <img src={srcs[page]} alt="" draggable={false} />
-      <PopAnimation>
-        字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕
-      </PopAnimation>
+      {/* <PopAnimation>Intro text placeholder...</PopAnimation> */}
     </motion.div>
   );
 
