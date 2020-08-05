@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import React, { createContext } from "react";
 import { observable, action } from "mobx";
 import { CellDifferentiation } from "../pages/CellDifferentiation";
 import { StemCellTreatment } from "../pages/StemCellTreatment";
@@ -13,34 +13,35 @@ import { FindingMatch } from "../pages/FindingMatch";
 
 interface RouteDefinition {
   path: string;
-  component: React.FC<any>;
+  component: JSX.Element;
 }
 
 export const pages: RouteDefinition[] = [
-  { path: "/", component: CellDifferentiation },
-  { path: "/stem-cell-treatment", component: StemCellTreatment },
-  { path: "/young-donor", component: YoungDonorWalking },
-  { path: "/finding-match", component: FindingMatch },
+  { path: "/cell-differentiation", component: <CellDifferentiation /> },
+  { path: "/stem-cell-treatment", component: <StemCellTreatment /> },
+  { path: "/young-donor", component: <YoungDonorWalking /> },
+  { path: "/finding-match", component: <FindingMatch /> },
   {
     path: "/more-collectable-stem-cells-in-male",
-    component: MoreCollectableStemCellsInMale,
+    component: <MoreCollectableStemCellsInMale />,
   },
-  { path: "/peripheral-blood-donation", component: PeripheralBloodDonation },
-  { path: "/find-match-takes-time", component: FindingMatchTakesTime },
-  { path: "/go-through-form", component: GoThroughForm },
-  { path: "/swabbing-kit", component: SwabbingKit },
-  { path: "/sign-form", component: SignForm },
+  {
+    path: "/peripheral-blood-donation",
+    component: <PeripheralBloodDonation />,
+  },
+  { path: "/find-match-takes-time", component: <FindingMatchTakesTime /> },
+  { path: "/go-through-form", component: <GoThroughForm /> },
+  { path: "/swabbing-kit", component: <SwabbingKit /> },
+  { path: "/sign-form", component: <SignForm /> },
 ];
 
 export class PageStore {
   private static _instance: PageStore;
   private static _context: React.Context<PageStore>;
 
-  @observable public afterIntro = false;
+  public setComponent?: React.Dispatch<React.SetStateAction<JSX.Element>>;
   @observable public direction = 0;
-  @observable public page = pages.findIndex(
-    r => r.path === window.location.pathname
-  );
+  @observable public page = 0;
 
   /* To prevent user click next before seeing the content */
   @observable public pageLimit = this.page;
@@ -71,6 +72,10 @@ export class PageStore {
     return this.page < this.pageLimit;
   }
 
+  @observable public currentPage() {
+    return pages[this.page].component;
+  }
+
   @action public pushPageLimit() {
     this.pageLimit = Math.max(this.pageLimit, this.page + 1);
   }
@@ -80,7 +85,7 @@ export class PageStore {
       this.page++;
       this.direction = 1;
     }
-    return pages[this.page].path;
+    this.setComponent && this.setComponent(() => pages[this.page].component);
   }
 
   @action public previousPage() {
@@ -88,16 +93,12 @@ export class PageStore {
       this.page--;
       this.direction = -1;
     }
-    return pages[this.page].path;
+    this.setComponent && this.setComponent(() => pages[this.page].component);
   }
 
   @action public syncPage(location: string) {
     const i = pages.findIndex(r => r.path === location);
     if (i === this.page) return;
     this.page = i;
-  }
-
-  @action public finishIntro() {
-    this.afterIntro = true;
   }
 }

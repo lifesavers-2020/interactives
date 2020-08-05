@@ -20,8 +20,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "tailwindcss": "^1.4.6",
-    "typescript": "~3.7.2",
-    "wouter": "^2.4.0"
+    "typescript": "~3.7.2"
   },
   "homepage": "./",
   "scripts": {

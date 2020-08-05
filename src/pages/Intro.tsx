@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { PopAnimation } from "../components/Animations/PopAnimation";
-import { PageStore } from "../stores/PageStore";
 
 import intro1Image from "../assets/imgs/intro/intro1.gif";
 import intro2Image from "../assets/imgs/intro/intro2.gif";
@@ -21,13 +20,16 @@ const texts = [
   "He does not know a lot about the donation process. He visits the Canadian Blood Services website.",
 ];
 
-export const Intro: React.FC = () => {
+interface Props {
+  onIntroEnd: () => void;
+}
+
+export const Intro: React.FC<Props> = ({ onIntroEnd }) => {
   const [page, setPage] = useState(0);
-  const pageStore = useContext(PageStore.context());
 
   const paginate = () => {
     if (page < 2) return setPage(page + 1);
-    pageStore.finishIntro();
+    onIntroEnd();
   };
 
   const IntroContent = (

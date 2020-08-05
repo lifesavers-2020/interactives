@@ -7,11 +7,16 @@ export const AudioManager: React.FC = () => {
 
   useEffect(() => {
     document.body.onfocus = () => {
+      if (!audio) return;
       audio.loop = true;
       audio.volume = 0.3;
-      audio.play();
+
+      setTimeout(() => {
+        audio.play();
+      }, 200);
     };
     document.body.onblur = () => {
+      if (!audio) return;
       audio.pause();
     };
   }, [audio]);

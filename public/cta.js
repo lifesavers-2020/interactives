@@ -1,1 +1,1 @@
-FBPlayableAd.onCTAClick();
+FbPlayableAd.onCTAClick();
