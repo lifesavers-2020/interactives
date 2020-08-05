@@ -106,8 +106,8 @@ export const SignForm: React.FC = () => {
       ></canvas>
       <img
         className="absolute"
-        style={{ right: 0, bottom: 0 }}
-        width={50}
+        style={{ right: 0, bottom: 0, transform: "rotate(15deg)" }}
+        width={30}
         src={pencilImage}
         alt=""
         draggable={false}
@@ -130,8 +130,8 @@ export const SignForm: React.FC = () => {
 
   const Info = (
     <PopAnimation className="card">
-      Step 3: if you match with a patient, we will acquire your consent
-      signature before the transplantation.
+      Step 3: Registration complete! Wait to hear from Canadian Blood Services
+      once you are matched. It’s that simple!
     </PopAnimation>
   );
 

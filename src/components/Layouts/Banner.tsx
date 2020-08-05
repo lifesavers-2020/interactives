@@ -7,10 +7,16 @@ export const Banner: React.FC = () => {
   const width = 140;
   return (
     <div className="flex flex-row justify-around items-center w-full">
-      <img width={width} src={logoImage} alt="Logo" />
       <a
         target="_blank"
-        href="https://www.blood.ca/en"
+        href="https://www.blood.ca/en/stemcells/donating-stemcells/stemcell-eligibility-and-registration"
+        rel="noopener noreferrer"
+      >
+        <img width={width} src={logoImage} alt="Logo" />
+      </a>
+      <a
+        target="_blank"
+        href="https://www.blood.ca/en/stemcells/donating-stemcells/stemcell-eligibility-and-registration"
         rel="noopener noreferrer"
       >
         <motion.button className="register-button" whileTap={{ scale: 0.9 }}>

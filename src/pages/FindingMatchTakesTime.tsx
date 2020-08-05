@@ -91,8 +91,8 @@ export const FindingMatchTakesTime: React.FC = () => {
 
   const Info = (
     <PopAnimation className="card" visible={() => count >= 0}>
-      Finding a match usually takes time. The patient's patience and the donor's
-      commitment to donate are critical in saving life.
+      Finding a match usually takes time. The donor's commitment to donate is
+      critical in saving a patient's life.
     </PopAnimation>
   );
 

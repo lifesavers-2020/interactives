@@ -8,6 +8,7 @@ export const AudioManager: React.FC = () => {
   useEffect(() => {
     document.body.onfocus = () => {
       audio.loop = true;
+      audio.volume = 0.3;
       audio.play();
     };
     document.body.onblur = () => {

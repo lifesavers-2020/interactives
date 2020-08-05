@@ -16,9 +16,9 @@ const variants: Variants = {
 
 const srcs = [intro1Image, intro2Image, intro3Image];
 const texts = [
-  `Last year, Cole was diagnosed with "Leukemia".`,
-  "Luckily, he he received a stem cell transplant from a hero and recovered.",
-  "But he does not know a lot about the donation process, so he checks out CBS website.",
+  `Last year, Cole was diagnosed with Leukemia.`,
+  "Luckily, he received a stem cell transplant from a Hero and recovered.",
+  "He does not know a lot about the donation process. He visits the Canadian Blood Services website.",
 ];
 
 export const Intro: React.FC = () => {

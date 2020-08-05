@@ -77,8 +77,8 @@ export const FindingMatch: React.FC = () => {
       </div>
       <h2 className="text-xl" style={{ height: 90 }}>
         {found
-          ? "Only 25% of patient can find a match within their families, the rest are relying on us for help."
-          : "Help us find the perfect match for a patient in need."}
+          ? "Only 25% of patients can find a match within their families, the rest are relying on us for help."
+          : "Tap on the perfect match for a patient in need."}
       </h2>
     </div>
   );

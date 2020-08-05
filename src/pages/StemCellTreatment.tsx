@@ -30,7 +30,7 @@ export const StemCellTreatment: React.FC = () => {
 
   const Description = (
     <FadeAnimation>
-      <h2>Different treatable by stem cells transplant</h2>
+      <h2>Diseases treatable by stem cell transplants</h2>
     </FadeAnimation>
   );
 
@@ -44,13 +44,13 @@ export const StemCellTreatment: React.FC = () => {
     <div className="vcontainer">
       {makeInfoCard(
         () => count > 0,
-        "Various types of blood cancers such as leukemia, lymphoma and myeloma."
+        "Various types of blood cancers such as leukemia, lymphoma and myeloma"
       )}
       {StemCell}
       {Description}
       {makeInfoCard(
         () => count > 1,
-        "Bone marrow deficiency diseases such as thalassemia and sickle cell disease."
+        "Bone marrow deficiency diseases such as thalassemia and sickle cell disease"
       )}
     </div>
   );
