@@ -12,6 +12,7 @@ import { PageStore } from "../stores/PageStore";
 import { useOnResize } from "../components/Hooks/useOnResize";
 
 import mikeImage from "../assets/imgs/sign-form/i8-3-mike.png";
+import pencilImage from "../assets/imgs/shared/pencil.png";
 
 export const SignForm: React.FC = () => {
   const signStore = useContext(SignStore.context());
@@ -103,6 +104,14 @@ export const SignForm: React.FC = () => {
         width={250}
         height={100}
       ></canvas>
+      <img
+        className="absolute"
+        style={{ right: 0, bottom: 0 }}
+        width={50}
+        src={pencilImage}
+        alt=""
+        draggable={false}
+      />
     </div>
   );
 
@@ -120,7 +129,7 @@ export const SignForm: React.FC = () => {
   );
 
   const Info = (
-    <PopAnimation className="card" visible={() => signed}>
+    <PopAnimation className="card">
       Step 3: if you match with a patient, we will acquire your consent
       signature before the transplantation.
     </PopAnimation>
@@ -128,8 +137,8 @@ export const SignForm: React.FC = () => {
 
   return (
     <div className="vcontainer">
-      {Form}
       {Info}
+      {Form}
     </div>
   );
 };
