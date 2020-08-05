@@ -36,6 +36,7 @@ export class PageStore {
   private static _instance: PageStore;
   private static _context: React.Context<PageStore>;
 
+  @observable public afterIntro = false;
   @observable public direction = 0;
   @observable public page = pages.findIndex(
     r => r.path === window.location.pathname
@@ -94,5 +95,9 @@ export class PageStore {
     const i = pages.findIndex(r => r.path === location);
     if (i === this.page) return;
     this.page = i;
+  }
+
+  @action public finishIntro() {
+    this.afterIntro = true;
   }
 }
