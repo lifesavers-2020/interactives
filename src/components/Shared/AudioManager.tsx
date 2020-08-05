@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 
 const bgm = require("../../assets/audio/bgm.ogg");
 
-const audio = new Audio(bgm);
-
 export const AudioManager: React.FC = () => {
+  const audio = new Audio(bgm);
+
   useEffect(() => {
     document.body.onfocus = () => {
       audio.loop = true;
@@ -13,7 +13,7 @@ export const AudioManager: React.FC = () => {
     document.body.onblur = () => {
       audio.pause();
     };
-  }, []);
+  }, [audio]);
 
   return <></>;
 };
