@@ -5,6 +5,7 @@ import { PageStore } from "../stores/PageStore";
 
 import intro1Image from "../assets/imgs/intro/intro1.gif";
 import intro2Image from "../assets/imgs/intro/intro2.gif";
+import intro3Image from "../assets/imgs/intro/intro3.gif";
 import introNextImage from "../assets/imgs/shared/intro-next.png";
 
 const variants: Variants = {
@@ -13,7 +14,7 @@ const variants: Variants = {
   exit: { zIndex: 0, opacity: 0, scale: 0.5 },
 };
 
-const srcs = [intro1Image, intro2Image, intro1Image];
+const srcs = [intro1Image, intro2Image, intro3Image];
 
 export const Intro: React.FC = () => {
   const [page, setPage] = useState(0);
@@ -49,7 +50,7 @@ export const Intro: React.FC = () => {
       <div className="relative w-full h-full">
         <AnimatePresence initial={false}>{IntroContent}</AnimatePresence>
       </div>
-      <div className="flex flex-row justify-end w-full">
+      <div className="flex flex-row justify-center w-full">
         <motion.img
           style={{ width: 54, height: 54, margin: 20 }}
           whileTap={{ scale: 0.9 }}
