@@ -13,7 +13,7 @@ export const AudioManager: React.FC = () => {
 
       setTimeout(() => {
         audio.play();
-      }, 200);
+      }, 1000);
     };
     document.body.onblur = () => {
       if (!audio) return;

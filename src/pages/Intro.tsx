@@ -17,7 +17,7 @@ const srcs = [intro1Image, intro2Image, intro3Image];
 const texts = [
   `Last year, Cole was diagnosed with Leukemia.`,
   "Luckily, he received a stem cell transplant from a Hero and recovered.",
-  "He does not know a lot about the donation process. He visits the Canadian Blood Services website.",
+  "Mike does not know a lot about the donation process. He visits the Canadian Blood Services website.",
 ];
 
 interface Props {
